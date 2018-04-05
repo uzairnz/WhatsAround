@@ -1,15 +1,13 @@
 package com.example.uzairzohaib.whatsaround;
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-public class UserHome extends AppCompatActivity {
+public class CustomerHome extends AppCompatActivity {
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -48,7 +46,7 @@ public class UserHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_home);
+        setContentView(R.layout.activity_customer_home);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);  // removed redundant cast
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

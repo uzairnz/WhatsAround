@@ -28,8 +28,11 @@
         <activity android:name=".PartnerLogin" />
         <activity android:name=".PartnerSignup" />
         <activity
-            android:name=".UserHome"
-            android:label="@string/title_activity_user_home"></activity>
+            android:name=".CustomerHome"
+            android:label="@string/title_activity_user_home" />
+        <activity
+            android:name=".PartnerHome"
+            android:label="@string/title_activity_partner_home"></activity>
     </application>
 
 </manifest>

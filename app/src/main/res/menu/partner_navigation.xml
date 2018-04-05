@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_NewLeads"
+        android:icon="@drawable/ic_flare_black_24dp"
+        android:title="@string/title_NewLeads" />
+
+    <item
+        android:id="@+id/navigation_Ongoing"
+        android:icon="@drawable/ic_sync_black_24dp"
+        android:title="@string/title_Ongoing" />
+
+    <item
+        android:id="@+id/navigation_p_profile"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="@string/title_profile" />
+
+</menu>

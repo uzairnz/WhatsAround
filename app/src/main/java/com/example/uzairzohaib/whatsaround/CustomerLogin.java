@@ -102,7 +102,7 @@ public class CustomerLogin extends AppCompatActivity {
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
         Intent myIntent = new Intent(CustomerLogin.this,
-                UserHome.class);
+                CustomerHome.class);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(myIntent);
         finish();
