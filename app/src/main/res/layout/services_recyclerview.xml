@@ -35,6 +35,7 @@
                 android:layout_height="20dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignStart="@+id/service_location"
+                android:layout_marginTop="11dp"
                 android:layout_weight="1"
                 android:text="Service Name"
                 android:textColor="#000"
@@ -58,27 +59,13 @@
                 android:layout_height="20dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginBottom="21dp"
-                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="11dp"
+                android:layout_marginEnd="23dp"
                 android:layout_weight="1"
                 android:text="Service Category"
                 android:textColor="#000"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/service_name"
-                android:layout_alignBottom="@+id/service_name"
-                android:layout_centerHorizontal="true"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:text="Service Name" />
 
         </RelativeLayout>
 
