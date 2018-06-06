@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.List;
 
 public class ProfileRecyclerViewAdapter extends RecyclerView.Adapter<ProfileRecyclerViewAdapter.MyViewHolder> {
@@ -37,8 +36,7 @@ public class ProfileRecyclerViewAdapter extends RecyclerView.Adapter<ProfileRecy
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         holder.tv_txt.setText(mData.get(position).getName());
-        holder.img.setImageResource(mData.get(position).getPhoto());
-
+        holder.img_p.setImageResource(mData.get(position).getPhoto());
     }
 
     @Override
@@ -49,7 +47,7 @@ public class ProfileRecyclerViewAdapter extends RecyclerView.Adapter<ProfileRecy
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tv_txt;
-        private ImageView img;
+        private ImageView img_p;
 
 
 
@@ -57,7 +55,7 @@ public class ProfileRecyclerViewAdapter extends RecyclerView.Adapter<ProfileRecy
             super(itemView);
 
             tv_txt = (TextView) itemView.findViewById(R.id.profile_name);
-            img = (ImageView) itemView.findViewById(R.id.img_profile);
+            img_p = (ImageView) itemView.findViewById(R.id.img_profile);
 
         }
     }

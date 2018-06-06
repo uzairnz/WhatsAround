@@ -8,16 +8,25 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_home_screen"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:background="#000"
         tools:ignore="NamespaceTypo">
 
     </android.support.v7.widget.Toolbar>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/profile_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/margin_56">
+
+    </android.support.v7.widget.RecyclerView>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="56dp">
 
         <TextView
             android:id="@+id/textView"
@@ -43,13 +52,6 @@
             android:text="Login" />
 
     </RelativeLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/profile_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="@dimen/margin_56">
 
-    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
