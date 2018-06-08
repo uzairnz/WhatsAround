@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:background="#437ac2"
+    android:background="@color/colorPrimary"
 
     tools:context="com.example.uzairzohaib.whatsaround.MainActivity">
 
@@ -22,11 +22,12 @@
         android:scaleX=".5"
         android:scaleY=".5"
 
-        android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.43"
+        app:srcCompat="@drawable/ic_if_map_1291745" />
 
     <TextView
         android:layout_width="194dp"
@@ -37,11 +38,12 @@
         android:layout_marginTop="8dp"
         android:text="Whats Around!"
         android:textAlignment="center"
-        android:textColor="#ffffff"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.597" />
 </android.support.constraint.ConstraintLayout>
