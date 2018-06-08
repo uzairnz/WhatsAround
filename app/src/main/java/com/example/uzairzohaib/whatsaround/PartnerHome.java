@@ -17,11 +17,11 @@ public class PartnerHome extends AppCompatActivity {
             // FragmentManager fragmentManager = getSupportFragmentManager();
             //FragmentTransaction transaction = fragmentManager.beginTransaction();
             switch (item.getItemId()) {
-                case R.id.navigation_NewLeads:
-                    NewLeadsFragment newleadsFragment = new NewLeadsFragment();
+                case R.id.navigation_Quotes:
+                    QuotesFragment quotesFragmentFragment = new QuotesFragment();
                     FragmentManager manager = getFragmentManager();
                     manager.beginTransaction().replace(R.id.contentLayout2,
-                            newleadsFragment, newleadsFragment.getTag()).commit();
+                            quotesFragmentFragment, quotesFragmentFragment.getTag()).commit();
                     return true;
                 case R.id.navigation_Ongoing:
                     OngoingFragment ongoingFragment = new  OngoingFragment();

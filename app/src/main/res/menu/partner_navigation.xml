@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_NewLeads"
+        android:id="@+id/navigation_Quotes"
         android:icon="@drawable/ic_flare_black_24dp"
-        android:title="@string/title_NewLeads" />
+        android:title="@string/title_Quotes" />
 
     <item
         android:id="@+id/navigation_Ongoing"
