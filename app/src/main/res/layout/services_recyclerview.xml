@@ -10,7 +10,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="108dp"
+        android:layout_height="110dp"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#ffff"
         card_view:cardCornerRadius="4dp">
@@ -18,9 +18,9 @@
 
         <ImageView
             android:id="@+id/img_service"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:padding="16dp"
+            android:layout_width="123dp"
+            android:layout_height="match_parent"
+            android:padding="8dp"
             android:src="@mipmap/ic_launcher_round"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />

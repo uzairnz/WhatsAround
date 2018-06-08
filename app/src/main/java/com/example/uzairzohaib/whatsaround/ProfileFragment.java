@@ -49,8 +49,8 @@ public class ProfileFragment extends android.app.Fragment {
 //            mParam2 = getArguments().getString(ARG_PARAM2);
 //
     lstProfile = new ArrayList<>();
-        lstProfile.add(new Profile("Register as a Partner",R.drawable.ic_work_black_24dp));
-        lstProfile.add(new Profile("About WhatsAround!", R.drawable.ic_home_black_24dp));
-        lstProfile.add(new Profile("Share WhatsAround!", R.drawable.ic_share_black_24dp));
+        lstProfile.add(new Profile("Register as a Partner",R.drawable.ic_if_briefcase_1296365));
+        lstProfile.add(new Profile("About WhatsAround!", R.drawable.ic_if_house_window_1378824));
+        lstProfile.add(new Profile("Share WhatsAround!", R.drawable.ic_if_social_share_377940));
 }
 }

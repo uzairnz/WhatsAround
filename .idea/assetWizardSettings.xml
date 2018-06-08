@@ -19,11 +19,11 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="60" />
-                            <entry key="outputName" value="ic_if_map_1291745" />
+                            <entry key="height" value="512" />
+                            <entry key="outputName" value="ic_if_brush" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\UZAIR&amp;ZOHAIB\Pictures\if_map_1291745.svg" />
-                            <entry key="width" value="60" />
+                            <entry key="sourceFile" value="C:\Users\UZAIR&amp;ZOHAIB\Pictures\if_brush.svg" />
+                            <entry key="width" value="512" />
                           </map>
                         </option>
                       </PersistentState>
