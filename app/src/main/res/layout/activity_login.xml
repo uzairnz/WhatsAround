@@ -11,23 +11,51 @@
         android:id="@+id/user_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="156dp"
+        android:layout_marginBottom="11dp"
         android:text="@string/user"
-        android:theme="@style/MyButton"
         android:textColor="#ffffff"
-        />
+        android:theme="@style/MyButton" />
 
     <Button
         android:id="@+id/partner_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/user_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="145dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="85dp"
         android:text="@string/partner"
-        android:theme="@style/MyButton"
         android:textColor="#ffffff"
-        />
+        android:theme="@style/MyButton" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/darker_gray"
+        android:foregroundGravity="bottom"
+        android:id="@+id/view" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="bell"
+        android:padding="@dimen/margin_12"
+        app:srcCompat="@drawable/ic_if_bell_294399" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_below="@+id/view"
+        app:srcCompat="@drawable/ic_if_briefcase_1296365"
+        android:padding="@dimen/margin_12"/>
+
 </RelativeLayout>
