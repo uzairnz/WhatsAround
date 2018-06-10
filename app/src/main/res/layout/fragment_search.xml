@@ -11,12 +11,7 @@
         android:layout_height="56dp"
         tools:ignore="NamespaceTypo"
         android:layout_gravity="top">
-        <RelativeLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
