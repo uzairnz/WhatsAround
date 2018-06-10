@@ -23,7 +23,7 @@ public class SearchFragment extends android.app.Fragment {
 
     View v;
     private RecyclerView myrecyclerview;
-    private List<Service> lstService;
+    private ArrayList<Service> lstService;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -47,42 +47,39 @@ public class SearchFragment extends android.app.Fragment {
         super.onCreate(savedInstanceState);
 
         lstService = new ArrayList<>();
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
-        lstService.add(new Service("Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
-        lstService.add(new Service("Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(1,"Home Tution", "Education", "Johar Town", R.drawable.ic_if_education_3069198));
+        lstService.add(new Service(2,"Car Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
+        lstService.add(new Service(3,"Dish Wash", "Cleaning", "Muslim Town", R.drawable.ic_if_brush));
     }
 
 }

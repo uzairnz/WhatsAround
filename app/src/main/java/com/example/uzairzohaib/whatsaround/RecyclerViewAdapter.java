@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,9 +19,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     Context mContext;
-    List<Service> mData;
+    ArrayList<Service> mData;
 
-    public RecyclerViewAdapter(Context mContext, List<Service> mData) {
+    public RecyclerViewAdapter(Context mContext, ArrayList<Service> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -32,6 +34,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         MyViewHolder viewHolder = new MyViewHolder(v);
         return viewHolder;
     }
+    public void changeset(ArrayList<Service> mData){
+        this.mData = mData;
+        this.notifyDataSetChanged();
+    }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
@@ -39,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
        holder.tv_name.setText(mData.get(position).getName());
        holder.tv_category.setText(mData.get(position).getCategory());
        holder.tv_location.setText(mData.get(position).getLocation());
-       holder.img.setImageResource(mData.get(position).getPhoto());
+//       holder.img.setImageResource(mData.get(position).getPhoto());
 
     }
 

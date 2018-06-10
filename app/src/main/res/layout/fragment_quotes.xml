@@ -48,6 +48,7 @@
         <Button
             android:id="@+id/add_quote"
             android:layout_width="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
