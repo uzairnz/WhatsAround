@@ -3,8 +3,6 @@ package com.example.uzairzohaib.whatsaround;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.PriorityQueue;
-
 /**
  * Created by UZAIR&ZOHAIB on 4/12/2018.
  */
@@ -82,5 +80,6 @@ public class Service {
     public void setPhoto(int photo) {
         Photo = photo;
     }
+
 }
 

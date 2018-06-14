@@ -1,13 +1,14 @@
 package com.example.uzairzohaib.whatsaround;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-public class PartnerHome extends AppCompatActivity {
+public class PartnerHome extends AppCompatActivity implements QuotesFragment.OnSampleFragmentListener  {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -48,6 +49,13 @@ public class PartnerHome extends AppCompatActivity {
         setContentView(R.layout.activity_partner_home);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    public void onButtonPressed() {
+        Intent intent = new Intent(this, AddQuoteActivity.class);
+        startActivity(intent);
+
     }
 
 }

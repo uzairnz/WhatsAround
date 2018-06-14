@@ -1,6 +1,8 @@
 package com.example.uzairzohaib.whatsaround;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -39,22 +42,61 @@ public class QuotesFragment extends android.app.Fragment {
     private ArrayList<Service> lstQuote = new ArrayList();
     Gson gson;
     RecyclerViewAdapter recyclerAdapter;
-
+   // private Button btnGoToActivity;
     public QuotesFragment() {
         // Required empty public constructor
     }
+    private OnSampleFragmentListener mListener;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)   //if problem then examine this
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+        //this might be new method check again if error exists
+
+        View view  = inflater.inflate(R.layout.fragment_quotes, container, false);
+        Button btnGoToActivity = (Button) view.findViewById(R.id.add_quote);
+
+        btnGoToActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* Intent intent = new Intent(getActivity(), AddQuoteActivity.class);
+                getActivity().startActivity(intent);*/
+                mListener.onButtonPressed();
+            }
+        });
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_quotes, container, false);
-        myrecyclerview = (RecyclerView) v.findViewById(R.id.quotes_recyclerview);
+
+        myrecyclerview = (RecyclerView) view.findViewById(R.id.quotes_recyclerview);
         recyclerAdapter = new RecyclerViewAdapter(getContext(), lstQuote);
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()) {});
         myrecyclerview.setAdapter(recyclerAdapter);
-        return v;
+        return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnSampleFragmentListener) {
+            mListener = (OnSampleFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnSampleFragmentListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public interface OnSampleFragmentListener {
+        // TODO: Update argument type and name
+        void onButtonPressed();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

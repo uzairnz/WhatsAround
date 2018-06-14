@@ -50,6 +50,7 @@
             android:layout_width="wrap_content"
             android:backgroundTint="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
+            android:onClick="buttonClick"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="11dp"

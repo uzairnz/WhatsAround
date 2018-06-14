@@ -9,5 +9,7 @@
     <color name="pink">#C71585</color>
     <color name="grey">#d3d3d3</color>
     <color name="hint_color">#d3d3d3</color>
+    <color name="real_grey">#808080</color>
+    <color name="background_color_1">#e7f1f4</color>
 
 </resources>
