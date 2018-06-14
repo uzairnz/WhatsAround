@@ -84,8 +84,6 @@ public class AddQuoteActivity extends AppCompatActivity {
                 Call<Quote> listList= quote1.savequotes(price, description, 1,1);
                 LostList.enqueue(new Callback<Service>() {
                     @Override
-
-
                     public void onResponse(Call<Service> call, Response<Service> response) {
                         Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
 
