@@ -34,6 +34,8 @@ public interface Api {
              @Field("location") String lost_date,
              @Field("photo") int photo);
 
+    @POST("quote")
+    @FormUrlEncoded
     Call<Quote>savequotes(
             @Field("price") int price,
             @Field("description") String description,
@@ -42,8 +44,8 @@ public interface Api {
     );
 
     @POST("service")
-    Call<Service> savequote(@Body Service lost);
+    Call<Service> saveservice(@Body Service lost);
 
     @POST("quote")
-    Call<Quote> savequote(@Body Quote lost);
+    Call<Quote> savequotes(@Body Quote lost);
 }
