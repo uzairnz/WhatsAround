@@ -30,9 +30,9 @@ public interface Api {
     @FormUrlEncoded
     Call<Service>saveservice(
              @Field("service_name") String item_name,
-             @Field("category") String item_description,
-             @Field("location") String lost_date,
-             @Field("photo") int photo);
+             @Field("category") String category,
+             @Field("location") String location,
+             @Field("quotes") int photo);
 
     @POST("quote")
     @FormUrlEncoded
