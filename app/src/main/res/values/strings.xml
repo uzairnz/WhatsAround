@@ -47,4 +47,10 @@
     <string name="title">Title</string>
     <string name="service_category">Service Category</string>
     <string name="service_location">Location</string>
+    <string name="_4">4</string>
+    <string name="_999_00">999.00</string>
+    <string name="rs">Rs.</string>
+    <string name="todo">TODO</string>
+    <string name="quote_name">Quote Name</string>
+    <string name="quote_category">Quote Category</string>
 </resources>
