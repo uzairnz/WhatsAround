@@ -1,0 +1,154 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/toolbar_home_screen"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="top"
+            android:background="@color/colorPrimaryDark"
+            tools:ignore="NamespaceTypo">
+
+        </android.support.v7.widget.Toolbar>
+
+        <ImageButton
+            android:id="@+id/close_detquote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:onClick="close_det"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+        <TextView
+            android:id="@+id/tv_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/close_detquote"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/details"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/toolbar_home_screen"
+            android:background="@color/light_grey"
+            android:padding="@dimen/margin_12"
+            android:text="@string/service_information"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView4"
+            android:background="@color/colorPrimaryDark"
+            android:padding="@dimen/margin_3"
+            android:text="Service Name"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal" />
+
+        <EditText
+            android:id="@+id/tv_service_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView5"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_12"
+            android:text="@string/service_information"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_service_name"
+            android:padding="@dimen/margin_3"
+            android:text="@string/service_category"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal" />
+        <EditText
+            android:id="@+id/tv_service_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView6"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_12"
+            android:text="@string/service_category"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_service_category"
+            android:padding="@dimen/margin_3"
+            android:text="@string/service_location"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal" />
+        <EditText
+            android:id="@+id/tv_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView7"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_12"
+            android:text="@string/service_location"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal" />
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tv_location"
+            android:padding="@dimen/margin_3"
+            android:text="Description"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal" />
+        <EditText
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView9"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_12"
+            android:text="@string/service_location"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal" />
+    </RelativeLayout>
+
+
+</ScrollView>

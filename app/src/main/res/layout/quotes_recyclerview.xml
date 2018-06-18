@@ -18,9 +18,9 @@
 
         <ImageView
             android:id="@+id/img_quote"
-            android:layout_width="123dp"
+            android:layout_width="110dp"
             android:layout_height="match_parent"
-            android:padding="8dp"
+            android:padding="2dp"
             android:src="@mipmap/ic_launcher_round"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
@@ -35,7 +35,7 @@
                 android:layout_width="112dp"
                 android:layout_height="20dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/quote_location"
+                android:layout_alignStart="@+id/quote_category"
                 android:layout_weight="1"
                 android:text="Quote Name"
                 android:textColor="#000"
@@ -46,7 +46,7 @@
                 android:layout_width="112dp"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/quote_category"
-                android:layout_centerVertical="true"
+                android:layout_below="@+id/quote_name"
                 android:layout_weight="1"
                 android:text="Service location"
                 android:textColor="#000"
@@ -56,23 +56,61 @@
                 android:id="@+id/quote_category"
                 android:layout_width="112dp"
                 android:layout_height="20dp"
-                android:layout_above="@+id/view2"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/quote_location"
+                android:layout_marginStart="125dp"
                 android:layout_weight="1"
                 android:text="Quote Category"
                 android:textColor="#000"
                 android:textStyle="bold" />
 
             <View
+                android:id="@+id/view2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
                 android:background="@android:color/darker_gray"
-                android:foregroundGravity="bottom"
-                android:id="@+id/view2" />
+                android:foregroundGravity="bottom" />
 
+            <RatingBar
+                android:id="@+id/ratingBar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/quote_category"
+                android:layout_alignTop="@+id/Rating_num"
+                android:numStars="4"
+                android:rating=""
+                android:style="@style/Widget.AppCompat.RatingBar.Small" />
+
+            <TextView
+                android:id="@+id/Rating_num"
+                android:layout_width="@dimen/margin_20"
+                android:layout_height="@dimen/margin_18"
+                android:layout_above="@+id/view2"
+                android:layout_alignEnd="@+id/quote_category"
+                android:layout_marginEnd="22dp"
+                android:text="4"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/quote_price"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_alignBottom="@+id/ratingBar2"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/margin_4"
+                android:text="999.00"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <TextView
+                android:layout_width="@dimen/margin_20"
+                android:layout_height="25dp"
+                android:layout_alignTop="@+id/quote_price"
+                android:layout_toStartOf="@+id/quote_price"
+                android:text="Rs."
+                android:textColor="@color/colorPrimaryDark" />
 
         </RelativeLayout>
 

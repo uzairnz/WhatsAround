@@ -42,4 +42,9 @@
     <string name="title_notifications">Notifications</string>
     <string name="your_locality">YOUR LOCALITY</string>
     <string name="enter_location">Lahore</string>
+    <string name="service_information">Service Information</string>
+    <string name="details">Details</string>
+    <string name="title">Title</string>
+    <string name="service_category">Service Category</string>
+    <string name="service_location">Location</string>
 </resources>
