@@ -53,4 +53,10 @@
     <string name="todo">TODO</string>
     <string name="quote_name">Quote Name</string>
     <string name="quote_category">Quote Category</string>
+    <string name="add_quote">Add Quote</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="quote_detail">Quote Detail</string>
 </resources>

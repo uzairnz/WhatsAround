@@ -246,10 +246,12 @@
     <dimen name="margin_4">4dp</dimen>
     <dimen name="margin_40">40dp</dimen>
     <dimen name="margin_42">42dp</dimen>
+    <dimen name="margin_45">45dp</dimen>
     <dimen name="margin_46">46dp</dimen>
     <dimen name="margin_48">48dp</dimen>
     <dimen name="margin_5">5dp</dimen>
     <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_52">52dp</dimen>
     <dimen name="margin_54">54dp</dimen>
     <dimen name="margin_56">56dp</dimen>
     <dimen name="margin_58">58dp</dimen>

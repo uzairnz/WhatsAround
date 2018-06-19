@@ -30,7 +30,7 @@
                 android:layout_width="112dp"
                 android:layout_height="20dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/quote_location"
+                android:layout_centerHorizontal="true"
                 android:text="@string/quote_name"
                 android:textColor="#000"
                 android:textStyle="bold" />
@@ -39,7 +39,7 @@
                 android:id="@+id/quote_location"
                 android:layout_width="112dp"
                 android:layout_height="20dp"
-                android:layout_alignStart="@+id/quote_category"
+                android:layout_alignStart="@+id/quote_name"
                 android:layout_below="@+id/quote_name"
                 android:text="@string/service_location"
                 android:textColor="#000"
@@ -49,9 +49,8 @@
                 android:id="@+id/quote_category"
                 android:layout_width="112dp"
                 android:layout_height="20dp"
+                android:layout_alignStart="@+id/quote_location"
                 android:layout_below="@+id/quote_location"
-                android:layout_marginEnd="29dp"
-                android:layout_toStartOf="@+id/textView3"
                 android:text="@string/quote_category"
                 android:textColor="#000"
                 android:textStyle="bold" />

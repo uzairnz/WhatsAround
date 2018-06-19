@@ -41,7 +41,7 @@ public class QuotesFragment extends android.app.Fragment {
     private RecyclerView myrecyclerview;
     private ArrayList<Service> lstQuote = new ArrayList();
     Gson gson;
-    RecyclerViewAdapter recyclerAdapter;
+    QuoteRecyclerViewAdapter recyclerAdapter;
    // private Button btnGoToActivity;
     public QuotesFragment() {
         // Required empty public constructor
@@ -71,7 +71,7 @@ public class QuotesFragment extends android.app.Fragment {
         // Inflate the layout for this fragment
 
         myrecyclerview = (RecyclerView) view.findViewById(R.id.quotes_recyclerview);
-        recyclerAdapter = new RecyclerViewAdapter(getContext(), lstQuote);
+        recyclerAdapter = new QuoteRecyclerViewAdapter(getContext(), lstQuote);
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()) {});
         myrecyclerview.setAdapter(recyclerAdapter);
         return view;
