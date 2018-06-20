@@ -24,6 +24,9 @@ import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 
 public class Quote_Detail extends AppCompatActivity {
 
+    private static final String TAG = "Quote_Detail";  //check if error
+
+
     //  Services
     ExtendedEditText id;
     ExtendedEditText service_name;
@@ -92,6 +95,7 @@ public class Quote_Detail extends AppCompatActivity {
         service_name.setText(Name);
         service_category.setText(Category);
         service_location.setText(Location);
+        quote_id.setText(Quote_Id);
         quote_Price.setText(Quote_Price);
         quote_Details.setText(Quote_Details);
         S_id.setText(Service_Id);
@@ -101,6 +105,18 @@ public class Quote_Detail extends AppCompatActivity {
 
 
     }
+
+    private void getIncomingIntent(){
+        Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
+
+        if(getIntent().hasExtra("quote_Price") && getIntent().hasExtra("quote_Id")){
+            Log.d(TAG, "getIncomingIntent: found intent extras.");
+
+            int Quote_Id = getIntent().getIntExtra("quote_Price", 99);
+            int Quote_Price = getIntent().getIntExtra("quote_Id", 10);
+        }
+    }
+
 
     public void return_aq(View view) {
     }

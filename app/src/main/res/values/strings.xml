@@ -59,4 +59,5 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="quote_detail">Quote Detail</string>
+    <string name="quote_ID">quote Id</string>
 </resources>

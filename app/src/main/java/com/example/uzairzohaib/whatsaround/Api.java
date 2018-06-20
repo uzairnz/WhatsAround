@@ -26,6 +26,9 @@ public interface Api {
     @GET("service")
     Call<ArrayList<Service>> getServices();
 
+    @GET("quote")
+    Call<ArrayList<Quote>> getQuotes();
+
     @POST("service")
     @FormUrlEncoded
     Call<Service>saveservice(

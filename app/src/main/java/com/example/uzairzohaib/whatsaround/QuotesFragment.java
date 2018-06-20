@@ -40,6 +40,7 @@ public class QuotesFragment extends android.app.Fragment {
     View v;
     private RecyclerView myrecyclerview;
     private ArrayList<Service> lstQuote = new ArrayList();
+    private ArrayList<Quote> lstQuote2 = new ArrayList(); // for click on recycler view postion
     Gson gson;
     QuoteRecyclerViewAdapter recyclerAdapter;
    // private Button btnGoToActivity;
@@ -71,7 +72,7 @@ public class QuotesFragment extends android.app.Fragment {
         // Inflate the layout for this fragment
 
         myrecyclerview = (RecyclerView) view.findViewById(R.id.quotes_recyclerview);
-        recyclerAdapter = new QuoteRecyclerViewAdapter(getContext(), lstQuote);
+        recyclerAdapter = new QuoteRecyclerViewAdapter(getContext(), lstQuote);  // for click on recycler view postion
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()) {});
         myrecyclerview.setAdapter(recyclerAdapter);
         return view;
@@ -125,6 +126,9 @@ public class QuotesFragment extends android.app.Fragment {
         Api api = rerofit.create(Api.class);
         Call<ArrayList<Service>> LostList = api.getServices();
 
+
+
+        //Getting data for services
         LostList.enqueue(new Callback<ArrayList<Service>>() {
             @Override
             public void onResponse(Call<ArrayList<Service>> call, Response<ArrayList<Service>> response) {
@@ -140,6 +144,9 @@ public class QuotesFragment extends android.app.Fragment {
 
             }
         });
+
+        //Getting data for quotes
+
 
         /*Retrofit rerofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
