@@ -1,5 +1,7 @@
 package com.example.uzairzohaib.whatsaround;
 
+import com.example.uzairzohaib.whatsaround.models.Service;
+
 import java.util.ArrayList;
 
 /**

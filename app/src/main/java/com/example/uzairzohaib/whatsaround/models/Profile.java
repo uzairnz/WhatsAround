@@ -1,4 +1,4 @@
-package com.example.uzairzohaib.whatsaround;
+package com.example.uzairzohaib.whatsaround.models;
 
 /**
  * Created by UZAIR on 6/7/2018.

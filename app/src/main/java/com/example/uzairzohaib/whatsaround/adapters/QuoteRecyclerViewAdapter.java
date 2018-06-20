@@ -1,21 +1,19 @@
-package com.example.uzairzohaib.whatsaround;
+package com.example.uzairzohaib.whatsaround.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.uzairzohaib.whatsaround.R;
+import com.example.uzairzohaib.whatsaround.models.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by UZAIR on 6/9/2018.

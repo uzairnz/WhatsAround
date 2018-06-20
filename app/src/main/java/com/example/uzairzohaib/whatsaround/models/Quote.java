@@ -1,4 +1,4 @@
-package com.example.uzairzohaib.whatsaround;
+package com.example.uzairzohaib.whatsaround.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

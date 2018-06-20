@@ -1,25 +1,15 @@
 package com.example.uzairzohaib.whatsaround;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.uzairzohaib.whatsaround.Service;
+import com.example.uzairzohaib.whatsaround.models.Quote;
+import com.example.uzairzohaib.whatsaround.models.Service;
 import com.google.gson.Gson;
 
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 
 public class Quote_Detail extends AppCompatActivity {

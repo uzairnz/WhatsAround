@@ -1,4 +1,4 @@
-package com.example.uzairzohaib.whatsaround;
+package com.example.uzairzohaib.whatsaround.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.uzairzohaib.whatsaround.R;
+import com.example.uzairzohaib.whatsaround.models.Service;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by UZAIR&ZOHAIB on 4/12/2018.

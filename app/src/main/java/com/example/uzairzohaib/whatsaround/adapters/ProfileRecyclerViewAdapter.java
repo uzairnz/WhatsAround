@@ -1,4 +1,4 @@
-package com.example.uzairzohaib.whatsaround;
+package com.example.uzairzohaib.whatsaround.adapters;
 
 /**
  * Created by UZAIR on 6/6/2018.
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.uzairzohaib.whatsaround.R;
+import com.example.uzairzohaib.whatsaround.models.Profile;
+
 import java.util.List;
 
 public class ProfileRecyclerViewAdapter extends RecyclerView.Adapter<ProfileRecyclerViewAdapter.MyViewHolder> {

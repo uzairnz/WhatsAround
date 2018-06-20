@@ -5,15 +5,15 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import com.example.uzairzohaib.whatsaround.Service;
+import com.example.uzairzohaib.whatsaround.models.Quote;
+import com.example.uzairzohaib.whatsaround.models.Service;
+import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 
 /**
  * Created by UZAIR on 6/9/2018.
@@ -28,6 +28,12 @@ public interface Api {
 
     @GET("quote")
     Call<ArrayList<Quote>> getQuotes();
+
+    @GET("give/{id}")
+    Call<ServiceQuote>getServiceQuote(@Path("id") String id);
+
+    @GET("give")
+    Call<ServiceQuote>getServiceQuote();
 
     @POST("service")
     @FormUrlEncoded
