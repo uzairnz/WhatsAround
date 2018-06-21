@@ -1,22 +1,51 @@
 package com.example.uzairzohaib.whatsaround.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by UZAIR on 6/20/2018.
  */
 
 public class ServiceQuote {
+    @SerializedName("service_id")
+    @Expose
     private int Service_Id;
+
+    @SerializedName("service_name")
+    @Expose
     private String Service_Name;
+
+    @SerializedName("category")
+    @Expose
     private String Category;
+
+    @SerializedName("location")
+    @Expose
     private String Location;
-    private String Quotes;
-    private int Quote_Id;  //will be used for rating
-    private int Price;
+
+    @SerializedName("quotes")
+    @Expose
+    private String Quotes; //will be used for rating
+
+    @SerializedName("quote_id")
+    @Expose
+    private String Quote_Id;
+
+    @SerializedName("price")
+    @Expose
+    private String Price;
+
+    @SerializedName("description")
+    @Expose
     private String Description;
+
+    @SerializedName("partner_id")
+    @Expose
     private int Partner_Id;
 
 
-    public ServiceQuote(int service_Id, String service_Name, String category, String location, String quotes, int quote_Id, int price, String description, int partner_Id) {
+    public ServiceQuote(int service_Id, String service_Name, String category, String location, String quotes, String quote_Id, String price, String description, int partner_Id) {
         Service_Id = service_Id;
         Service_Name = service_Name;
         Category = category;
@@ -69,19 +98,19 @@ public class ServiceQuote {
         Quotes = quotes;
     }
 
-    public int getQuote_Id() {
+    public String getQuote_Id() {
         return Quote_Id;
     }
 
-    public void setQuote_Id(int quote_Id) {
+    public void setQuote_Id(String quote_Id) {
         Quote_Id = quote_Id;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return Price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         Price = price;
     }
 

@@ -33,7 +33,7 @@ public interface Api {
     Call<ServiceQuote>getServiceQuote(@Path("id") String id);
 
     @GET("give")
-    Call<ServiceQuote>getServiceQuote();
+    Call<ArrayList<ServiceQuote>> getServiceQuote();
 
     @POST("service")
     @FormUrlEncoded

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.uzairzohaib.whatsaround.models.Quote;
 import com.example.uzairzohaib.whatsaround.models.Service;
+import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 import com.google.gson.Gson;
 
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
@@ -62,22 +63,20 @@ public class Quote_Detail extends AppCompatActivity {
         String target = getIntent().getStringExtra("Details");
 
         //Classes
-        Service service = gson.fromJson(target, Service.class);
-        Quote quote = gson.fromJson(target, Quote.class);
+        ServiceQuote sq = gson.fromJson(target, ServiceQuote.class);
 
         //for service table
-        final int Id = service.getId();
-        String Name = service.getName().toString();
-        String Category = service.getCategory().toString();
-        String Location = service.getLocation().toString();
-        int Photo = service.getPhoto();
+        final int Id = sq.getService_Id();
+        String Name = sq.getService_Name();  //toString() removed due to redundency error
+        String Category = sq.getCategory();
+        String Location = sq.getLocation();
+        String rating = sq.getQuotes();   // getQuotes into rating temporary chugar
 
         //for quote table
-        int Quote_Id = quote.getId();
-        int Quote_Price = quote.getPrice();
-        String Quote_Details = quote.getDescription().toString();
-        int Service_Id = quote.getService_id();
-        int Partner_Id = quote.getPartner_id();
+        String Quote_Id = sq.getQuote_Id();
+        String Quote_Price = sq.getPrice();
+        String Quote_Details = sq.getDescription();
+        int Partner_Id = sq.getPartner_Id();
 
 
 
@@ -88,7 +87,7 @@ public class Quote_Detail extends AppCompatActivity {
         quote_id.setText(Quote_Id);
         quote_Price.setText(Quote_Price);
         quote_Details.setText(Quote_Details);
-        S_id.setText(Service_Id);
+        S_id.setText(Id);
         P_id.setText(Partner_Id);
 
 
@@ -102,8 +101,7 @@ public class Quote_Detail extends AppCompatActivity {
         if(getIntent().hasExtra("quote_Price") && getIntent().hasExtra("quote_Id")){
             Log.d(TAG, "getIncomingIntent: found intent extras.");
 
-            int Quote_Id = getIntent().getIntExtra("quote_Price", 99);
-            int Quote_Price = getIntent().getIntExtra("quote_Id", 10);
+            int Service_Id = getIntent().getIntExtra("service_Id", 99);
         }
     }
 

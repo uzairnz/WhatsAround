@@ -16,6 +16,7 @@ import android.widget.Button;
 import com.example.uzairzohaib.whatsaround.adapters.QuoteRecyclerViewAdapter;
 import com.example.uzairzohaib.whatsaround.models.Quote;
 import com.example.uzairzohaib.whatsaround.models.Service;
+import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
@@ -34,8 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class QuotesFragment extends android.app.Fragment {
     View v;
     private RecyclerView myrecyclerview;
-    private ArrayList<Service> lstQuote = new ArrayList();
-    private ArrayList<Quote> lstQuote2 = new ArrayList(); // for click on recycler view postion
+    private ArrayList<ServiceQuote> lstServiceQuote = new ArrayList<ServiceQuote>(); // for click on recycler view postion
     Gson gson;
     QuoteRecyclerViewAdapter recyclerAdapter;
    // private Button btnGoToActivity;
@@ -67,7 +67,7 @@ public class QuotesFragment extends android.app.Fragment {
         // Inflate the layout for this fragment
 
         myrecyclerview = (RecyclerView) view.findViewById(R.id.quotes_recyclerview);
-        recyclerAdapter = new QuoteRecyclerViewAdapter(getContext(), lstQuote);  // for click on recycler view postion
+        recyclerAdapter = new QuoteRecyclerViewAdapter(getContext(), lstServiceQuote);  // for click on recycler view postion
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()) {});
         myrecyclerview.setAdapter(recyclerAdapter);
         return view;
@@ -96,15 +96,15 @@ public class QuotesFragment extends android.app.Fragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void test(ServiceEvent customEvent) {
+    public void test(ServiceQuoteEvent customEvent) {
         Log.i("check","Hello");
-        lstQuote = customEvent.getMessage();
+        lstServiceQuote = customEvent.getMessage();
         /*gson = new Gson();
         String str = gson.toJson(customEvent.getMessage());*/
 
         //Log.i("check",""+lostDetailList1);
 
-        recyclerAdapter.changeset(lstQuote);
+        recyclerAdapter.changeset(lstServiceQuote);
 
     }
     @Override
@@ -119,22 +119,22 @@ public class QuotesFragment extends android.app.Fragment {
                 .build();
 
         Api api = rerofit.create(Api.class);
-        Call<ArrayList<Service>> LostList = api.getServices();
+        Call<ArrayList<ServiceQuote>> LostList = api.getServiceQuote();
 
 
 
         //Getting data for services
-        LostList.enqueue(new Callback<ArrayList<Service>>() {
+        LostList.enqueue(new Callback<ArrayList<ServiceQuote>>() {
             @Override
-            public void onResponse(Call<ArrayList<Service>> call, Response<ArrayList<Service>> response) {
+            public void onResponse(Call<ArrayList<ServiceQuote>> call, Response<ArrayList<ServiceQuote>> response) {
                 Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-                ArrayList<Service> LostDetailList = response.body();
-                ServiceEvent lostEvent = new ServiceEvent(LostDetailList);
+                ArrayList<ServiceQuote> LostDetailList = response.body();
+                ServiceQuoteEvent lostEvent = new ServiceQuoteEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);
             }
 
             @Override
-            public void onFailure(Call<ArrayList<Service>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<ServiceQuote>> call, Throwable t) {
                 Log.i("response_check", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
 
             }
