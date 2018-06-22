@@ -164,6 +164,8 @@ public class Quote_Detail extends AppCompatActivity {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String price = quote_Price.getText().toString();
+                String details = quote_Details.getText().toString();
 
                 Toast.makeText(Quote_Detail.this, "Quote Updated", Toast.LENGTH_SHORT).show();
 
@@ -175,23 +177,27 @@ public class Quote_Detail extends AppCompatActivity {
 
                 Api service1 = retrofit.create(Api.class);
 
-                Call<ArrayList<Quote>> LostList = service1.updateQuote
+
+                /*Call<Quote> LostList = service1.updateQuote
                         (getQt_Id(), quote_Price.getText().toString(),
-                                quote_Details.getText().toString(), Id, Partner_Id);
-                LostList.enqueue(new Callback<ArrayList<Quote>>() {
+                                quote_Details.getText().toString(), Id, Partner_Id);*/
+                Call<Quote> LostList = service1.updateQuote
+                        (Quote_Id, price, details,Id, Partner_Id);
+
+                LostList.enqueue(new Callback<Quote>() {
                     @Override
 
-                    public void onResponse(Call<ArrayList<Quote>> call, Response<ArrayList<Quote>> response) {
+                    public void onResponse(Call<Quote> call, Response<Quote> response) {
                         Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-                        String partner_Id = Id;
+
                         Intent intent = new Intent(Quote_Detail.this, MyQuotesActivity.class);
-                        intent.putExtra("partner_id",partner_Id);
+                        intent.putExtra("partner_id",Partner_Id);
                         startActivity(intent);
 
                     }
 
                     @Override
-                    public void onFailure(Call<ArrayList<Quote>> call, Throwable t) {
+                    public void onFailure(Call<Quote> call, Throwable t) {
                         Log.d("Post", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
                         Toast.makeText(Quote_Detail.this, "Failed", Toast.LENGTH_SHORT).show();
                     }

@@ -43,7 +43,7 @@ public interface Api {
 
     @PUT("quote/{id}")
     @FormUrlEncoded
-    Call<ArrayList<Quote>> updateQuote(@Path("id") String id,
+    Call<Quote> updateQuote(@Path("id") String id,
                           @Field("price") String price,
                           @Field("description") String description,
                           @Field("service_id") String service_id,
