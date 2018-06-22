@@ -35,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class QuotesFragment extends android.app.Fragment {
     View v;
     private RecyclerView myrecyclerview;
-    private ArrayList<ServiceQuote> lstServiceQuote = new ArrayList<ServiceQuote>(); // for click on recycler view postion
+    private ArrayList<Service> lstServiceQuote = new ArrayList<Service>(); // for click on recycler view postion
     Gson gson;
     QuoteRecyclerViewAdapter recyclerAdapter;
    // private Button btnGoToActivity;
@@ -54,7 +54,7 @@ public class QuotesFragment extends android.app.Fragment {
         //this might be new method check again if error exists
 
         View view  = inflater.inflate(R.layout.fragment_quotes, container, false);
-        Button btnGoToActivity = (Button) view.findViewById(R.id.add_quote);
+        Button btnGoToActivity = (Button) view.findViewById(R.id.my_quotes);
 
         btnGoToActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +96,7 @@ public class QuotesFragment extends android.app.Fragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void test(ServiceQuoteEvent customEvent) {
+    public void test(ServiceEvent customEvent) {
         Log.i("check","Hello");
         lstServiceQuote = customEvent.getMessage();
         /*gson = new Gson();
@@ -119,22 +119,22 @@ public class QuotesFragment extends android.app.Fragment {
                 .build();
 
         Api api = rerofit.create(Api.class);
-        Call<ArrayList<ServiceQuote>> LostList = api.getServiceQuote();
+        Call<ArrayList<Service>> LostList = api.getServices();
 
 
 
         //Getting data for services
-        LostList.enqueue(new Callback<ArrayList<ServiceQuote>>() {
+        LostList.enqueue(new Callback<ArrayList<Service>>() {
             @Override
-            public void onResponse(Call<ArrayList<ServiceQuote>> call, Response<ArrayList<ServiceQuote>> response) {
+            public void onResponse(Call<ArrayList<Service>> call, Response<ArrayList<Service>> response) {
                 Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-                ArrayList<ServiceQuote> LostDetailList = response.body();
-                ServiceQuoteEvent lostEvent = new ServiceQuoteEvent(LostDetailList);
+                ArrayList<Service> LostDetailList = response.body();
+                ServiceEvent lostEvent = new ServiceEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);
             }
 
             @Override
-            public void onFailure(Call<ArrayList<ServiceQuote>> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Service>> call, Throwable t) {
                 Log.i("response_check", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
 
             }

@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.uzairzohaib.whatsaround.AddQuoteActivity;
 import com.example.uzairzohaib.whatsaround.Quote_Detail;
 import com.example.uzairzohaib.whatsaround.R;
 import com.example.uzairzohaib.whatsaround.models.Service;
@@ -30,10 +32,10 @@ public class QuoteRecyclerViewAdapter extends RecyclerView.Adapter<QuoteRecycler
 
 
     Context mContext;
-    ArrayList<ServiceQuote> mData;
+    ArrayList<Service> mData;
 
 
-    public QuoteRecyclerViewAdapter(Context mContext, ArrayList<ServiceQuote> mData) {
+    public QuoteRecyclerViewAdapter(Context mContext, ArrayList<Service> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
@@ -47,7 +49,7 @@ public class QuoteRecyclerViewAdapter extends RecyclerView.Adapter<QuoteRecycler
         return viewHolder;
     }
 
-    public void changeset(ArrayList<ServiceQuote> mData){
+    public void changeset(ArrayList<Service> mData){
         this.mData = mData;
         this.notifyDataSetChanged();
     }
@@ -56,63 +58,53 @@ public class QuoteRecyclerViewAdapter extends RecyclerView.Adapter<QuoteRecycler
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
-        ServiceQuote serviceQuote = mData.get(position);
+        Service service = mData.get(position);
+        holder.service_name.setText(mData.get(position).getName());
+        holder.service_category.setText(mData.get(position).getCategory());
+        holder.service_location.setText(mData.get(position).getLocation());
 
-        holder.tv_name.setText(serviceQuote.getService_Name());
-        holder.tv_category.setText(serviceQuote.getCategory());
-        holder.tv_location.setText(serviceQuote.getLocation());
 //        holder.img.setImageResource(mData.get(position).getPhoto());
         //for quotes
-      holder.quote_id.setText(serviceQuote.getQuote_Id());
-      holder.quote_price.setText(serviceQuote.getPrice());
-//        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.d(TAG, "onClick: clicked on: " + mData.get(position));
-//
-//                Toast.makeText(mContext, "Clicked on " + mData.get(position).getService_Id(), Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(mContext, Quote_Detail.class);
-//                intent.putExtra("service_Id", mData.get(position).getService_Id());
-//                mContext.startActivity(intent);
-//            }
-//        });
+
+
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: clicked on: " + mData.get(position));
+
+                Toast.makeText(mContext, "Clicked on " + mData.get(position).getId(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(mContext, AddQuoteActivity.class);
+                intent.putExtra("service_Id", mData.get(position).getId());
+
+                mContext.startActivity(intent);
+            }
+        });
 
     }
-
-
 
     @Override
     public int getItemCount() { return mData.size();}     // for array list 1
 
 
-
-
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tv_name;
-        private TextView tv_category;
-        private TextView tv_location;
         private ImageView img;
         RelativeLayout parentLayout;
         //Quotes
-        private TextView quote_id;
-        private TextView quote_price;
-        private TextView quote_description;
-
+        private TextView service_name;
+        private TextView service_category;
+        private TextView service_location;
 
 
         public MyViewHolder (View itemView) {
             super(itemView);
 
-            tv_name = (TextView) itemView.findViewById(R.id.quote_name);
-            tv_category = (TextView) itemView.findViewById(R.id.quote_category);
-            tv_location = (TextView) itemView.findViewById(R.id.quote_location);
            img = (ImageView) itemView.findViewById(R.id.img_quote);
             parentLayout = itemView.findViewById(R.id.parent_layout);
-            quote_id = (TextView) itemView.findViewById(R.id.quote_Id);
-            quote_price = (TextView) itemView.findViewById(R.id.quote_price);
-
+            service_name = (TextView)itemView.findViewById(R.id.quote_name);
+            service_category= (TextView)itemView.findViewById(R.id.quote_category);
+            service_location = (TextView)itemView.findViewById(R.id.quote_location);
 
         }
     }

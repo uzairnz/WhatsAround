@@ -32,6 +32,10 @@ public interface Api {
     @GET("give/{id}")
     Call<ServiceQuote>getServiceQuote(@Path("id") String id);
 
+
+    @GET("myquote/{id}")
+    Call<ServiceQuote>getMyQuote(@Path("id") String id);
+
     @GET("give")
     Call<ArrayList<ServiceQuote>> getServiceQuote();
 
@@ -46,10 +50,10 @@ public interface Api {
     @POST("quote")
     @FormUrlEncoded
     Call<Quote>savequotes(
-            @Field("price") int price,
+            @Field("price") String price,
             @Field("description") String description,
-            @Field("service_id") int service_id,
-            @Field("partner_id") int partner_id
+            @Field("service_id") String service_id,
+            @Field("partner_id") String partner_id
     );
 
     @POST("service")

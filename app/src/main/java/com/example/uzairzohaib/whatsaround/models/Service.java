@@ -11,7 +11,7 @@ public class Service {
 
     @SerializedName("service_id")
     @Expose
-    private int Id;
+    private String Id;
 
     @SerializedName("service_name")
     @Expose
@@ -32,7 +32,7 @@ public class Service {
     public Service() {
     }
 
-    public Service(int id, String name, String category, String location, int photo) {
+    public Service(String id, String name, String category, String location, int photo) {
         Id = id;
         Name = name;
         Category = category;
@@ -42,7 +42,7 @@ public class Service {
 
     //Getter
 
-    public int getId() { return Id; }
+    public String getId() { return Id; }
 
     public String getName() {
         return Name;
@@ -63,7 +63,7 @@ public class Service {
 
     //Setter
 
-    public void setId(int id) { Id = id; }
+    public void setId(String id) { Id = id; }
 
     public void setName(String name) {
         Name = name;

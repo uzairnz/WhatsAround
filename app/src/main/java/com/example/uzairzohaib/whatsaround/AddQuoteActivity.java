@@ -28,9 +28,6 @@ public class AddQuoteActivity extends AppCompatActivity {
             //Binding buttons & text views with layout
     @BindView(R.id.save_quote) Button SaveQuote;
     @BindView(R.id.close_addquote) ImageButton Close;
-    @BindView(R.id.extended_edit_text_service_name) ExtendedEditText Service_name;
-    @BindView(R.id.extended_edit_text_service_category) ExtendedEditText Service_category;
-    @BindView(R.id.extended_edit_text_service_location) ExtendedEditText Service_location;
     @BindView(R.id.extended_edit_text_quote_description) ExtendedEditText Quote_description;
     @BindView(R.id.extended_edit_text_quote_price) ExtendedEditText Quote_price;
 
@@ -58,11 +55,8 @@ public class AddQuoteActivity extends AppCompatActivity {
         SaveQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String s_name = Service_name.getText().toString().trim();
-                String category = Service_category.getText().toString().trim();
-                String location = Service_location.getText().toString().trim();
                 String description = Quote_description.getText().toString().trim();
-                int price = 10000;
+                String price = Quote_price.getText().toString().trim();
 
                 Toast.makeText(AddQuoteActivity.this,"Quote Added",Toast.LENGTH_SHORT).show();
 
@@ -72,25 +66,9 @@ public class AddQuoteActivity extends AppCompatActivity {
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
 
-                Api service1 = retrofit.create(Api.class);
                 Api quote1 = retrofit.create(Api.class);
-
-                Call<Service> LostList = service1.saveservice(s_name, category, location, 333); //photo missing
-                Call<Quote> listList= quote1.savequotes(price, description, 1,1);
-                LostList.enqueue(new Callback<Service>() {
-                    @Override
-                    public void onResponse(Call<Service> call, Response<Service> response) {
-                        Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<Service> call, Throwable t) {
-                        Log.d("Post", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
-                        Toast.makeText(AddQuoteActivity.this,"Failed",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                String Id = getIntent().getStringExtra("service_Id");
+                Call<Quote> listList= quote1.savequotes(price, description, Id,"1");
 
                 listList.enqueue(new Callback<Quote>() {
                     @Override

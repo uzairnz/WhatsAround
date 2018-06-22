@@ -26,23 +26,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/quote_Id"
-                android:layout_width="112dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:text="@string/quote_ID"
-                android:textColor="#000"
-                android:textStyle="bold" />
-
 
             <TextView
                 android:id="@+id/quote_name"
                 android:layout_width="112dp"
                 android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="89dp"
                 android:text="@string/quote_name"
                 android:textColor="#000"
                 android:textStyle="bold" />
@@ -52,7 +43,7 @@
                 android:layout_width="112dp"
                 android:layout_height="20dp"
                 android:layout_alignStart="@+id/quote_name"
-                android:layout_below="@+id/quote_name"
+                android:layout_centerVertical="true"
                 android:text="@string/service_location"
                 android:textColor="#000"
                 android:textStyle="bold" />
@@ -61,8 +52,8 @@
                 android:id="@+id/quote_category"
                 android:layout_width="112dp"
                 android:layout_height="20dp"
+                android:layout_above="@+id/view2"
                 android:layout_alignStart="@+id/quote_location"
-                android:layout_below="@+id/quote_location"
                 android:text="@string/quote_category"
                 android:textColor="#000"
                 android:textStyle="bold" />
@@ -75,46 +66,6 @@
                 android:layout_alignParentStart="true"
                 android:background="@android:color/darker_gray"
                 android:foregroundGravity="bottom" />
-
-            <RatingBar
-                android:id="@+id/ratingBar2"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/quote_category"
-                android:layout_alignTop="@+id/Rating_num"
-                android:numStars="4"
-                android:rating="4" />
-
-            <TextView
-                android:id="@+id/Rating_num"
-                android:layout_width="@dimen/margin_20"
-                android:layout_height="@dimen/margin_18"
-                android:layout_above="@+id/view2"
-                android:layout_alignEnd="@+id/quote_category"
-                android:layout_marginEnd="22dp"
-                android:text="@string/_4"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <TextView
-                android:id="@+id/quote_price"
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/ratingBar2"
-                android:layout_alignParentEnd="true"
-                android:padding="@dimen/margin_4"
-                android:text="@string/_999_00"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <TextView
-                android:layout_width="@dimen/margin_20"
-                android:layout_height="25dp"
-                android:layout_alignBottom="@+id/ratingBar2"
-                android:layout_toStartOf="@+id/quote_price"
-                android:text="@string/rs"
-                android:textColor="@color/colorPrimaryDark"
-                android:id="@+id/textView3" />
 
         </RelativeLayout>
 

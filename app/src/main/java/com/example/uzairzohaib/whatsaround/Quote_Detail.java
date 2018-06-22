@@ -1,10 +1,13 @@
 package com.example.uzairzohaib.whatsaround;
 
+import android.media.Rating;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.example.uzairzohaib.whatsaround.models.Quote;
 import com.example.uzairzohaib.whatsaround.models.Service;
@@ -50,6 +53,9 @@ public class Quote_Detail extends AppCompatActivity {
         service_name = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_service_name);
         service_category = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_service_category);
         service_location = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_service_location);
+
+
+
         quote_id = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_quote_ID);
         quote_Details = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_quote_description);
         quote_Price = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_quote_price);
@@ -59,24 +65,33 @@ public class Quote_Detail extends AppCompatActivity {
         btn_update = (Button) this.findViewById(R.id.updateQuote);
         btn_delete = (Button) this.findViewById(R.id.deleteQuote);
 
-        gson = new Gson();
-        String target = getIntent().getStringExtra("Details");
+
 
         //Classes
-        ServiceQuote sq = gson.fromJson(target, ServiceQuote.class);
+       // ServiceQuote sq = gson.fromJson(one, ServiceQuote.class);
 
         //for service table
-        final int Id = sq.getService_Id();
-        String Name = sq.getService_Name();  //toString() removed due to redundency error
-        String Category = sq.getCategory();
-        String Location = sq.getLocation();
-        String rating = sq.getQuotes();   // getQuotes into rating temporary chugar
+        final String Id;
+        String Name;  //toString() removed due to redundency error
+        String Category;
+        String Location;
+        String rating;   // getQuotes into rating temporary chugar
 
         //for quote table
-        String Quote_Id = sq.getQuote_Id();
-        String Quote_Price = sq.getPrice();
-        String Quote_Details = sq.getDescription();
-        int Partner_Id = sq.getPartner_Id();
+        String Quote_Id;
+        String Quote_Price;
+        String Quote_Details;
+        String Partner_Id;
+
+        gson = new Gson();
+        Id = getIntent().getStringExtra("service_Id");
+        Name = getIntent().getStringExtra("service_Name");
+        Category = getIntent().getStringExtra("service_Category");
+        Location = getIntent().getStringExtra("service_Location");
+        rating = getIntent().getStringExtra("service_Rating");  // not used
+        Quote_Id = getIntent().getStringExtra("quote_Id");
+        Quote_Price = getIntent().getStringExtra("quote_Price");
+        Quote_Details = getIntent().getStringExtra("quote_Description");
 
 
 
@@ -87,9 +102,8 @@ public class Quote_Detail extends AppCompatActivity {
         quote_id.setText(Quote_Id);
         quote_Price.setText(Quote_Price);
         quote_Details.setText(Quote_Details);
-        S_id.setText(Id);
-        P_id.setText(Partner_Id);
-
+//        S_id.setText(Id);
+     //   P_id.setText(Partner_Id);      do not need it here
 
 
 

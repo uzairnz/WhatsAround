@@ -55,94 +55,16 @@
         android:textSize="20dp"
         android:textStyle="bold" />
             <!--Service Name-->
-    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/tv_service_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar_home_screen"
-        android:padding="@dimen/margin_12"
-        app:counterTextColor="@color/colorPrimaryDark"
-        app:errorColor="#ddaa00"
-        app:helperText="Text only"
-        app:helperTextColor="@color/real_grey"
-        app:labelText="Service Name"
-        app:maxCharacters="25"
-        app:panelBackgroundColor="@color/grey"
-        app:primaryColor="@color/colorPrimaryDark"
-        app:useDenseSpacing="true"
-        app:iconSignifier="@drawable/ic_work_black_24dp">
 
-        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/extended_edit_text_service_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark" />
-
-    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
-    <!--Service Category Name-->
-
-    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/service_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tv_service_name"
-        android:padding="@dimen/margin_12"
-        app:counterTextColor="@color/colorPrimaryDark"
-        app:errorColor="#ddaa00"
-        app:helperText="Text only"
-        app:helperTextColor="@color/real_grey"
-        app:labelText="Category"
-        app:maxCharacters="25"
-        app:panelBackgroundColor="@color/grey"
-        app:primaryColor="@color/colorPrimaryDark"
-        app:useDenseSpacing="true"
-        app:iconSignifier="@drawable/ic_add_black_24dp">
-
-        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/extended_edit_text_service_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark" />
-
-    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+        <!--Service Category Name-->
 
 
-    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
-        android:id="@+id/service_location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/service_category"
-        android:padding="@dimen/margin_12"
-        app:counterTextColor="@color/colorPrimaryDark"
-        app:errorColor="#ddaa00"
-        app:helperText="Text only"
-        app:helperTextColor="@color/real_grey"
-        app:labelText="Location"
-        app:maxCharacters="25"
-        app:panelBackgroundColor="@color/grey"
-        app:primaryColor="@color/colorPrimaryDark"
-        app:useDenseSpacing="true"
-        app:iconSignifier="@drawable/ic_location_on_black_24dp">
-
-        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
-            android:id="@+id/extended_edit_text_service_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark" />
-
-    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
-
-
-    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
         android:id="@+id/quote_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/service_location"
+        android:layout_below="@+id/toolbar_home_screen"
         android:padding="@dimen/margin_12"
         app:counterTextColor="@color/colorPrimaryDark"
         app:errorColor="#ddaa00"
@@ -164,6 +86,8 @@
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
 
+
+
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
         android:id="@+id/quote_price"
         android:layout_width="match_parent"
@@ -175,20 +99,21 @@
         app:errorColor="#ddaa00"
         app:helperText="Numbers only"
         app:helperTextColor="@color/real_grey"
+        app:iconSignifier="@drawable/ic_attach_money_black_24dp"
         app:labelText="Price"
         app:maxCharacters="7"
         app:panelBackgroundColor="@color/grey"
         app:primaryColor="@color/colorPrimaryDark"
-        app:useDenseSpacing="true"
-        app:iconSignifier="@drawable/ic_attach_money_black_24dp">
+        app:useDenseSpacing="true">
 
         <studio.carbonylgroup.textfieldboxes.ExtendedEditText
             android:id="@+id/extended_edit_text_quote_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:textColor="@color/colorPrimaryDark" />
 
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
     </RelativeLayout>
 </ScrollView>

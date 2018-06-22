@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
 public class ServiceQuote {
     @SerializedName("service_id")
     @Expose
-    private int Service_Id;
+    private String Service_Id;
 
     @SerializedName("service_name")
     @Expose
@@ -42,10 +42,10 @@ public class ServiceQuote {
 
     @SerializedName("partner_id")
     @Expose
-    private int Partner_Id;
+    private String Partner_Id;
 
 
-    public ServiceQuote(int service_Id, String service_Name, String category, String location, String quotes, String quote_Id, String price, String description, int partner_Id) {
+    public ServiceQuote(String service_Id, String service_Name, String category, String location, String quotes, String quote_Id, String price, String description, String partner_Id) {
         Service_Id = service_Id;
         Service_Name = service_Name;
         Category = category;
@@ -58,11 +58,11 @@ public class ServiceQuote {
     }
 
 
-    public int getService_Id() {
+    public String getService_Id() {
         return Service_Id;
     }
 
-    public void setService_Id(int service_Id) {
+    public void setService_Id(String service_Id) {
         Service_Id = service_Id;
     }
 
@@ -122,11 +122,11 @@ public class ServiceQuote {
         Description = description;
     }
 
-    public int getPartner_Id() {
+    public String getPartner_Id() {
         return Partner_Id;
     }
 
-    public void setPartner_Id(int partner_Id) {
+    public void setPartner_Id(String partner_Id) {
         Partner_Id = partner_Id;
     }
 

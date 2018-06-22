@@ -15,7 +15,7 @@ public class Quote {
 
     @SerializedName("price")
     @Expose
-    private int Price;
+    private String Price;
 
     @SerializedName("description")
     @Expose
@@ -32,7 +32,7 @@ public class Quote {
     public Quote() {
     }
 
-    public Quote(int id, int price, String description, int service_id, int partner_id) {
+    public Quote(int id, String price, String description, int service_id, int partner_id) {
         Id = id;
         Price = price;
         Description = description;
@@ -44,7 +44,7 @@ public class Quote {
 
     public int getId() { return Id; }
 
-    public int getPrice() {
+    public String getPrice() {
         return Price;
     }
 
@@ -65,7 +65,7 @@ public class Quote {
 
     public void setId(int id) { Id = id; }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         Price = price;
     }
 
