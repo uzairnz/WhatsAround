@@ -86,6 +86,7 @@ public class MyQuoteAdapter extends RecyclerView.Adapter<MyQuoteAdapter.MyViewHo
                 intent.putExtra("quote_Id", mData.get(position).getQuote_Id());
                 intent.putExtra("quote_Price", mData.get(position).getPrice());
                 intent.putExtra("quote_Description", mData.get(position).getDescription());
+                intent.putExtra("partner_Id", mData.get(position).getPartner_Id());
                 mContext.startActivity(intent);
             }
         });

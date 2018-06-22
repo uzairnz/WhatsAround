@@ -1,5 +1,7 @@
 package com.example.uzairzohaib.whatsaround;
 
+import android.content.Context;
+import android.content.Intent;
 import android.media.Rating;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,18 +10,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.uzairzohaib.whatsaround.models.Quote;
 import com.example.uzairzohaib.whatsaround.models.Service;
 import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 import com.google.gson.Gson;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
 
 public class Quote_Detail extends AppCompatActivity {
 
     private static final String TAG = "Quote_Detail";  //check if error
-
+    Context context;
 
     //  Services
     ExtendedEditText id;
@@ -38,6 +50,13 @@ public class Quote_Detail extends AppCompatActivity {
     Button btn_update;
     Button btn_delete;
 
+    public void setQt_Id(String qt_Id) {
+        this.qt_Id = qt_Id;
+    }
+
+    String qt_Id;
+
+
     Gson gson;
 
     @Override
@@ -55,7 +74,6 @@ public class Quote_Detail extends AppCompatActivity {
         service_location = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_service_location);
 
 
-
         quote_id = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_quote_ID);
         quote_Details = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_quote_description);
         quote_Price = (ExtendedEditText) this.findViewById(R.id.extended_edit_text_quote_price);
@@ -66,9 +84,8 @@ public class Quote_Detail extends AppCompatActivity {
         btn_delete = (Button) this.findViewById(R.id.deleteQuote);
 
 
-
         //Classes
-       // ServiceQuote sq = gson.fromJson(one, ServiceQuote.class);
+        // ServiceQuote sq = gson.fromJson(one, ServiceQuote.class);
 
         //for service table
         final String Id;
@@ -78,10 +95,10 @@ public class Quote_Detail extends AppCompatActivity {
         String rating;   // getQuotes into rating temporary chugar
 
         //for quote table
-        String Quote_Id;
+       final String Quote_Id;
         String Quote_Price;
         String Quote_Details;
-        String Partner_Id;
+      final  String Partner_Id;
 
         gson = new Gson();
         Id = getIntent().getStringExtra("service_Id");
@@ -90,10 +107,10 @@ public class Quote_Detail extends AppCompatActivity {
         Location = getIntent().getStringExtra("service_Location");
         rating = getIntent().getStringExtra("service_Rating");  // not used
         Quote_Id = getIntent().getStringExtra("quote_Id");
+        setQt_Id(Quote_Id);
         Quote_Price = getIntent().getStringExtra("quote_Price");
         Quote_Details = getIntent().getStringExtra("quote_Description");
-
-
+        Partner_Id = getIntent().getStringExtra("partner_id");
 
         id.setText(Id);
         service_name.setText(Name);
@@ -103,7 +120,87 @@ public class Quote_Detail extends AppCompatActivity {
         quote_Price.setText(Quote_Price);
         quote_Details.setText(Quote_Details);
 //        S_id.setText(Id);
-     //   P_id.setText(Partner_Id);      do not need it here
+        //   P_id.setText(Partner_Id);      do not need it here
+
+        // Delete in My Quotes
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(Quote_Detail.this, "Quote Deleted", Toast.LENGTH_SHORT).show();
+
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(Api.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                Api service1 = retrofit.create(Api.class);
+
+                Call<ArrayList<Quote>> LostList = service1.deleteMyQuote(getIntent().getStringExtra("quote_Id"));
+                LostList.enqueue(new Callback<ArrayList<Quote>>() {
+                    @Override
+
+                    public void onResponse(Call<ArrayList<Quote>> call, Response<ArrayList<Quote>> response) {
+                        Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                        Intent intent = new Intent(Quote_Detail.this, MyQuotesActivity.class);
+                        intent.putExtra("partner_id",getIntent().getStringExtra("partner_id"));
+                        Toast.makeText(Quote_Detail.this, "Success!", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Quote>> call, Throwable t) {
+                        Log.d("Post", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+                        Toast.makeText(Quote_Detail.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+            }
+        });
+            //  Update MyQuote
+        btn_update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(Quote_Detail.this, "Quote Updated", Toast.LENGTH_SHORT).show();
+
+
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(Api.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                Api service1 = retrofit.create(Api.class);
+
+                Call<ArrayList<Quote>> LostList = service1.updateQuote
+                        (getQt_Id(), quote_Price.getText().toString(),
+                                quote_Details.getText().toString(), Id, Partner_Id);
+                LostList.enqueue(new Callback<ArrayList<Quote>>() {
+                    @Override
+
+                    public void onResponse(Call<ArrayList<Quote>> call, Response<ArrayList<Quote>> response) {
+                        Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                        String partner_Id = Id;
+                        Intent intent = new Intent(Quote_Detail.this, MyQuotesActivity.class);
+                        intent.putExtra("partner_id",partner_Id);
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Quote>> call, Throwable t) {
+                        Log.d("Post", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+                        Toast.makeText(Quote_Detail.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+            }
+        });
+
 
 
 
@@ -123,9 +220,45 @@ public class Quote_Detail extends AppCompatActivity {
     public void return_aq(View view) {
     }
 
-    public void updateQuote(View view) {
+    public void updateQuote(View view)
+    {
+
+
+
     }
 
-    public void deleteQuote(View view) {
+    public String getQt_Id() {
+        return qt_Id;
     }
-}
+
+
+
+//    public void deleteQuote(View view)
+//    {
+//        EventBus.getDefault().register(this.context);
+//        Retrofit rerofit = new Retrofit.Builder()
+//                .baseUrl(Api.BASE_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        Api api = rerofit.create(Api.class);
+//        Call<ArrayList<Quote>> LostList = api.deleteMyQuote(getQt_Id());
+//        //Getting data for services
+//        LostList.enqueue(new Callback<ArrayList<Quote>>() {
+//            @Override
+//            public void onResponse(Call<ArrayList<Quote>> call, Response<ArrayList<Quote>> response) {
+//                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+//                Toast.makeText(context, "Quote Deleted!", Toast.LENGTH_SHORT).show();
+//                ArrayList<Quote> LostDetailList = response.body();
+//                QuoteEvent lostEvent = new QuoteEvent(LostDetailList);
+//                EventBus.getDefault().post(lostEvent);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ArrayList<Quote>> call, Throwable t) {
+//                Log.i("response_check", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+//
+//            }
+//        });
+    }
+

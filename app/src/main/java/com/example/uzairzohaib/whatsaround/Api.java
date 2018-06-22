@@ -6,10 +6,12 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 import com.example.uzairzohaib.whatsaround.models.Quote;
@@ -33,9 +35,20 @@ public interface Api {
     @GET("give/{id}")
     Call<ServiceQuote>getServiceQuote(@Path("id") String id);
 
+    @DELETE("quote/{id}")
+    Call<ArrayList<Quote>>deleteMyQuote(@Path("id") String id);
 
     @GET("myquote/{id}")
     Call<ArrayList<ServiceQuote>>getMyQuote(@Path("id") String id);
+
+    @PUT("quote/{id}")
+    @FormUrlEncoded
+    Call<ArrayList<Quote>> updateQuote(@Path("id") String id,
+                          @Field("price") String price,
+                          @Field("description") String description,
+                          @Field("service_id") String service_id,
+                          @Field("partner_id") String partner_id
+    );
 
     @GET("give")
     Call<ArrayList<ServiceQuote>> getServiceQuote();
