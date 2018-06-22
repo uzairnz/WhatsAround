@@ -1,5 +1,6 @@
 package com.example.uzairzohaib.whatsaround;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public interface Api {
 
 
     @GET("myquote/{id}")
-    Call<ServiceQuote>getMyQuote(@Path("id") String id);
+    Call<ArrayList<ServiceQuote>>getMyQuote(@Path("id") String id);
 
     @GET("give")
     Call<ArrayList<ServiceQuote>> getServiceQuote();

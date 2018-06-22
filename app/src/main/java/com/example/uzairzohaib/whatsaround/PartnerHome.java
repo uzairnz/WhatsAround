@@ -54,8 +54,11 @@ public class PartnerHome extends AppCompatActivity implements QuotesFragment.OnS
     @Override
     public void onButtonPressed() {
         Intent intent = new Intent(this, MyQuotesActivity.class);
+        String partner_id = "1";     //To view given partner quote declare partner id here.
+        intent.putExtra("partner_id", partner_id); //add partner id when available
         startActivity(intent);
-        intent.putExtra("partner_id", "1"); //add partner id when available
+
+
 
     }
 

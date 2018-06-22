@@ -347,4 +347,5 @@
     <dimen name="twelveScaled">12sp</dimen>
     <dimen name="twentyfour">24dp</dimen>
     <dimen name="two">2dp</dimen>
+    <dimen name="text_size_50sp">50</dimen>
 </resources>

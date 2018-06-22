@@ -234,31 +234,36 @@
             android:id="@+id/updateQuote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/update"
-            android:textColor="@color/colorPrimary"
-            android:background="@color/colorPrimaryDark"
-            android:layout_below="@id/quote_price"
-            android:padding="@dimen/margin_20"
-            android:onClick="updateQuote"
+            android:layout_below="@+id/quote_price"
+            android:layout_marginTop="18dp"
+            android:theme="@style/MyButton"
+            android:layout_marginEnd="@dimen/margin_20"
+            android:layout_toEndOf="@+id/close_addquote"
             android:gravity="bottom"
-            android:layout_marginStart="@dimen/margin_52"
-            android:layout_marginTop="@dimen/margin_30"
-            />
+            android:onClick="updateQuote"
+            android:padding="@dimen/margin_20"
+            android:text="@string/update"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/deleteQuote"
+            android:theme="@style/MyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/updateQuote"
             android:layout_alignBottom="@+id/updateQuote"
-            android:layout_marginStart="16dp"
             android:layout_toEndOf="@+id/tv_add_quote"
-            android:background="@color/colorPrimaryDark"
             android:gravity="right"
             android:onClick="deleteQuote"
             android:padding="@dimen/margin_20"
             android:text="@string/delete"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"/>
+        <View
+            android:layout_below="@id/updateQuote"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_40">
+
+        </View>
 
     </RelativeLayout>
 </ScrollView>

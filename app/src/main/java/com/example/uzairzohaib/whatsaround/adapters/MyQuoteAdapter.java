@@ -69,20 +69,26 @@ public class MyQuoteAdapter extends RecyclerView.Adapter<MyQuoteAdapter.MyViewHo
         holder.tv_location.setText(serviceQuote.getLocation());
 //        holder.img.setImageResource(mData.get(position).getPhoto());
         //for quotes
-        holder.quote_id.setText(serviceQuote.getQuote_Id());
-        holder.quote_price.setText(serviceQuote.getPrice());
-//        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.d(TAG, "onClick: clicked on: " + mData.get(position));
-//
-//                Toast.makeText(mContext, "Clicked on " + mData.get(position).getService_Id(), Toast.LENGTH_SHORT).show();
-//
-//                Intent intent = new Intent(mContext, Quote_Detail.class);
-//                intent.putExtra("service_Id", mData.get(position).getService_Id());
-//                mContext.startActivity(intent);
-//            }
-//        });
+        holder.quote_id.setText("Quote id:"+serviceQuote.getQuote_Id());
+        holder.quote_price.setText("Rs." + serviceQuote.getPrice());
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: clicked on: " + mData.get(position));
+
+                Toast.makeText(mContext, "Clicked on " + mData.get(position).getService_Id(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(mContext, Quote_Detail.class);
+                intent.putExtra("service_Id", mData.get(position).getService_Id());
+                intent.putExtra("service_Name", mData.get(position).getService_Name() );
+                intent.putExtra("service_Category", mData.get(position).getCategory());
+                intent.putExtra("service_Location", mData.get(position).getLocation());
+                intent.putExtra("quote_Id", mData.get(position).getQuote_Id());
+                intent.putExtra("quote_Price", mData.get(position).getPrice());
+                intent.putExtra("quote_Description", mData.get(position).getDescription());
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 
@@ -115,7 +121,7 @@ public class MyQuoteAdapter extends RecyclerView.Adapter<MyQuoteAdapter.MyViewHo
             tv_category = (TextView) itemView.findViewById(R.id.quote_category);
             tv_location = (TextView) itemView.findViewById(R.id.quote_location);
             img = (ImageView) itemView.findViewById(R.id.img_quote);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
+            parentLayout = itemView.findViewById(R.id.my_parent_layout);
             quote_id = (TextView) itemView.findViewById(R.id.quote_Id);
             quote_price = (TextView) itemView.findViewById(R.id.quote_price);
 

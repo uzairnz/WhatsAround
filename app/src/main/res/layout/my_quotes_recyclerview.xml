@@ -6,7 +6,7 @@
     android:layout_height="100dp"
     android:orientation="horizontal"
     android:background="#ffff"
-    android:id="@+id/parent_layout"
+    android:id="@+id/my_parent_layout"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
 

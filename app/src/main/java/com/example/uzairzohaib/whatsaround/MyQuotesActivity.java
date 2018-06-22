@@ -80,7 +80,7 @@ public class MyQuotesActivity extends AppCompatActivity {
 
         String id = getIntent().getStringExtra("partner_id"); //try wala method
         Api api = rerofit.create(Api.class);
-        Call<ArrayList<ServiceQuote>> LostList = api.getMyQuote("1");
+        Call<ArrayList<ServiceQuote>> LostList = api.getMyQuote(id); //kill me!
 
 
         //Getting data for services
