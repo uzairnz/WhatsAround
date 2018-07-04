@@ -36,7 +36,8 @@
             android:label="@string/title_activity_partner_home" />
         <activity android:name=".AddQuoteActivity" />
         <activity android:name=".Quote_Detail" />
-        <activity android:name=".MyQuotesActivity"></activity>
+        <activity android:name=".MyQuotesActivity" />
+        <activity android:name=".SearchDetail"></activity>
     </application>
 
 </manifest>

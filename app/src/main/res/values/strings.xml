@@ -61,4 +61,5 @@
     <string name="quote_detail">Quote Detail</string>
     <string name="quote_ID">quote Id</string>
     <string name="my_quotes">My Quotes</string>
+    <string name="quotes">Quotes</string>
 </resources>

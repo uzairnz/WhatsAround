@@ -1,17 +1,24 @@
 package com.example.uzairzohaib.whatsaround.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.uzairzohaib.whatsaround.R;
+import com.example.uzairzohaib.whatsaround.SearchDetail;
 import com.example.uzairzohaib.whatsaround.models.Service;
 
 import java.util.ArrayList;
+
+import static org.greenrobot.eventbus.EventBus.TAG;
 
 /**
  * Created by UZAIR&ZOHAIB on 4/12/2018.
@@ -42,12 +49,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder,final int position) {
 
        holder.tv_name.setText(mData.get(position).getName());
        holder.tv_category.setText(mData.get(position).getCategory());
        holder.tv_location.setText(mData.get(position).getLocation());
 //       holder.img.setImageResource(mData.get(position).getPhoto());
+
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: clicked on: " + mData.get(position));
+
+                Toast.makeText(mContext, "Clicked on " + mData.get(position).getId(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(mContext, SearchDetail.class);
+                intent.putExtra("service_Id", mData.get(position).getId());
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 
@@ -62,6 +82,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private TextView tv_category;
         private TextView tv_location;
         private ImageView img;
+        private RelativeLayout relativeLayout;
 
 
 
@@ -72,6 +93,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv_category = (TextView) itemView.findViewById(R.id.service_category);
             tv_location = (TextView) itemView.findViewById(R.id.service_location);
             img = (ImageView) itemView.findViewById(R.id.img_service);
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.search_parent_layout);
 
         }
     }

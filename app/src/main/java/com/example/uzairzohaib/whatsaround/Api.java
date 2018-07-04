@@ -24,7 +24,7 @@ import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 
 public interface Api {
 
-    String BASE_URL = "http://192.168.1.6:8000/api/";
+    String BASE_URL = "http://192.168.1.7:8000/api/";
 
     @GET("service")
     Call<ArrayList<Service>> getServices();

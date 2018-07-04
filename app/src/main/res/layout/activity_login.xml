@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/view"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="11dp"
         android:text="@string/user"
@@ -26,6 +27,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="17dp"
         android:layout_marginEnd="85dp"
+        android:gravity="center"
         android:text="@string/partner"
         android:textColor="#ffffff"
         android:theme="@style/MyButton" />
