@@ -72,7 +72,7 @@ public class SearchDetail extends AppCompatActivity {
                     (Call<ArrayList<ServiceQuote>> call, Response<ArrayList<ServiceQuote>> response) {
                 Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response +"]");
                 ArrayList<ServiceQuote> LostDetailList = response.body();
-//                searchAdapter.changeset(LostDetailList);
+                searchAdapter.changeset(LostDetailList);
                 ServiceQuoteEvent lostEvent = new ServiceQuoteEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);
             }

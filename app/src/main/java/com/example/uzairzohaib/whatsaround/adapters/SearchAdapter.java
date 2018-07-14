@@ -67,7 +67,8 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
         //for quotes
         holder.quote_id.setText("Quote id:"+serviceQuote.getQuote_Id());
         holder.quote_price.setText("Rs." + serviceQuote.getPrice());
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: clicked on: " + mData.get(position));
@@ -117,7 +118,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
             tv_name = (TextView) itemView.findViewById(R.id.quote_name);
             tv_category = (TextView) itemView.findViewById(R.id.quote_category);
             tv_location = (TextView) itemView.findViewById(R.id.quote_location);
-            img = (ImageView) itemView.findViewById(R.id.search_parent);
+//            img = (ImageView) itemView.findViewById(R.id.search_parent);
             parentLayout = itemView.findViewById(R.id.my_parent_layout);
             quote_id = (TextView) itemView.findViewById(R.id.quote_Id);
             quote_price = (TextView) itemView.findViewById(R.id.quote_price);

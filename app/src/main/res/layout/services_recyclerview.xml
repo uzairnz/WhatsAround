@@ -11,8 +11,9 @@
 
     <android.support.v7.widget.CardView
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="140dp"
         android:layout_gravity="center"
         card_view:cardBackgroundColor="#ffff"
         card_view:cardCornerRadius="4dp"
@@ -51,7 +52,6 @@
                 android:layout_height="20dp"
                 android:layout_above="@+id/service_category"
                 android:layout_alignStart="@+id/service_category"
-                android:layout_marginBottom="13dp"
                 android:layout_weight="1"
                 android:text="Service location"
                 android:textColor="#000"
