@@ -15,6 +15,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 import com.example.uzairzohaib.whatsaround.models.Quote;
+import com.example.uzairzohaib.whatsaround.models.Partner;
 import com.example.uzairzohaib.whatsaround.models.Service;
 import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 
@@ -24,7 +25,12 @@ import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 
 public interface Api {
 
-    String BASE_URL = "http://192.168.1.7:8000/api/";
+    String BASE_URL = "http://192.168.1.6:8000/api/";
+
+    // Partner Login
+
+    @GET("partner_login/{email}/{password}")
+    Call<ArrayList<Partner>> partnerLogin(@Path("email") String email, @Path("password") String password);
 
     @GET("service")
     Call<ArrayList<Service>> getServices();
@@ -33,7 +39,7 @@ public interface Api {
     Call<ArrayList<Quote>> getQuotes();
 
     @GET("give/{id}")
-    Call<ServiceQuote>getServiceQuote(@Path("id") String id);
+    Call<ArrayList<ServiceQuote>>getServiceQuote(@Path("id") String id);
 
     @DELETE("quote/{id}")
     Call<ArrayList<Quote>>deleteMyQuote(@Path("id") String id);

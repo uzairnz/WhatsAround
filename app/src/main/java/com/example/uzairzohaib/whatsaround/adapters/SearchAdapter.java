@@ -40,7 +40,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
         this.mData = mData;
     }
 
-    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -118,7 +117,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
             tv_name = (TextView) itemView.findViewById(R.id.quote_name);
             tv_category = (TextView) itemView.findViewById(R.id.quote_category);
             tv_location = (TextView) itemView.findViewById(R.id.quote_location);
-            img = (ImageView) itemView.findViewById(R.id.img_quote);
+            img = (ImageView) itemView.findViewById(R.id.search_parent);
             parentLayout = itemView.findViewById(R.id.my_parent_layout);
             quote_id = (TextView) itemView.findViewById(R.id.quote_Id);
             quote_price = (TextView) itemView.findViewById(R.id.quote_price);

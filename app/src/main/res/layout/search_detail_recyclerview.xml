@@ -6,7 +6,7 @@
     android:layout_height="100dp"
     android:orientation="horizontal"
     android:background="#ffff"
-    android:id="@+id/search_parent_layout"
+    android:id="@+id/search_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
 

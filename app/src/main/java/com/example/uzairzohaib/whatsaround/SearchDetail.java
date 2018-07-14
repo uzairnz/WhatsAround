@@ -60,7 +60,7 @@ public class SearchDetail extends AppCompatActivity {
 
         String id = getIntent().getStringExtra("service_Id"); //try wala method
         Api api = rerofit.create(Api.class);
-        Call<ArrayList<ServiceQuote>> LostList = api.getMyQuote(id); //kill me!
+        Call<ArrayList<ServiceQuote>> LostList = api.getServiceQuote(id); //kill me!
 
 
         //Getting data for services
@@ -70,8 +70,9 @@ public class SearchDetail extends AppCompatActivity {
             @Override
             public void onResponse
                     (Call<ArrayList<ServiceQuote>> call, Response<ArrayList<ServiceQuote>> response) {
-                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response +"]");
                 ArrayList<ServiceQuote> LostDetailList = response.body();
+//                searchAdapter.changeset(LostDetailList);
                 ServiceQuoteEvent lostEvent = new ServiceQuoteEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);
             }

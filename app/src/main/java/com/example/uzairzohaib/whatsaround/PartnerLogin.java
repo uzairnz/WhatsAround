@@ -11,8 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.uzairzohaib.whatsaround.models.Partner;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PartnerLogin extends AppCompatActivity {
     private static final String TAG = "CustomerLogin";
@@ -27,19 +38,64 @@ public class PartnerLogin extends AppCompatActivity {
     @BindView(R.id.link_signup)
     TextView _signupLink;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partner_login);
         ButterKnife.bind(this);
 
+
+
+
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                login();
+
+
+                //EventBus.getDefault().register(this);
+                Retrofit rerofit = new Retrofit.Builder()
+                        .baseUrl(Api.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                email = _emailText.getText().toString();
+               password =  _passwordText.getText().toString();
+
+
+                Api api = rerofit.create(Api.class);
+                Call<ArrayList<Partner>> LostList = api.partnerLogin(email, password ); //kill me!
+
+
+                //Getting data for services
+                LostList.enqueue(new Callback<ArrayList<Partner>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Partner>> call, Response<ArrayList<Partner>> response) {
+                        Log.i("response_check", "Partner Login Sucess! onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                        ArrayList<Partner> LostDetailList = response.body();
+                        PartnerEvent lostEvent = new PartnerEvent(LostDetailList);
+                        EventBus.getDefault().post(lostEvent);
+                        login();
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<Partner>> call, Throwable t) {
+                        Log.i("response_check", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+
+                    }
+                });
+
+
+
+
             }
         });
+
+
+
+
 
         _signupLink.setOnClickListener(new View.OnClickListener() {
 
@@ -50,7 +106,18 @@ public class PartnerLogin extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });
+
+
+
+
+
     }
+
+
+
+private    String email = "";
+
+private    String password = "";
 
     public void login() {
         Log.d(TAG, "Login");
@@ -68,8 +135,7 @@ public class PartnerLogin extends AppCompatActivity {
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+
 
         // TODO: Implement your own authentication logic here.
 
