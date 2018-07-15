@@ -1,6 +1,8 @@
 package com.example.uzairzohaib.whatsaround;
 
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +32,7 @@ public class AddQuoteActivity extends AppCompatActivity {
     @BindView(R.id.close_addquote) ImageButton Close;
     @BindView(R.id.extended_edit_text_quote_description) ExtendedEditText Quote_description;
     @BindView(R.id.extended_edit_text_quote_price) ExtendedEditText Quote_price;
-
+    public String MYPRREFERENCE = "MyPreferences";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,13 @@ public class AddQuoteActivity extends AppCompatActivity {
 
                 Api quote1 = retrofit.create(Api.class);
                 String Id = getIntent().getStringExtra("service_Id");
-                Call<Quote> listList= quote1.savequotes(price, description, Id,"1");
+
+                final SharedPreferences sharedPreferences = getSharedPreferences(MYPRREFERENCE, Context.MODE_PRIVATE);
+                String ID_KEY = "mykey";
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String Id2 = sharedPreferences.getString(ID_KEY, "1");
+
+                Call<Quote> listList= quote1.savequotes(price, description, Id,Id2);
 
                 listList.enqueue(new Callback<Quote>() {
                     @Override

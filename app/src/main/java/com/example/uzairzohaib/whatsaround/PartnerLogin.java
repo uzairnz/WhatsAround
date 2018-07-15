@@ -1,7 +1,9 @@
 package com.example.uzairzohaib.whatsaround;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,6 +31,8 @@ public class PartnerLogin extends AppCompatActivity {
     private static final String TAG = "CustomerLogin";
     private static final int REQUEST_SIGNUP = 0;
 
+    public     String  id = "";
+
     @BindView(R.id.input_email)
     EditText _emailText;
     @BindView(R.id.input_password)
@@ -38,7 +42,7 @@ public class PartnerLogin extends AppCompatActivity {
     @BindView(R.id.link_signup)
     TextView _signupLink;
 
-
+public String MYPRREFERENCE = "MyPreferences";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +66,7 @@ public class PartnerLogin extends AppCompatActivity {
                         .build();
 
                 email = _emailText.getText().toString();
-               password =  _passwordText.getText().toString();
+                password =  _passwordText.getText().toString();
 
 
                 Api api = rerofit.create(Api.class);
@@ -73,9 +77,10 @@ public class PartnerLogin extends AppCompatActivity {
                 LostList.enqueue(new Callback<ArrayList<Partner>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Partner>> call, Response<ArrayList<Partner>> response) {
-                        Log.i("response_check", "Partner Login Sucess! onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                        Log.i("response_check", "Partner Login Sucess! onResponse() called with: call = [" + call + "], response = [" + response + "]"+ "where id ="+response.body().get(0).getId());
                         ArrayList<Partner> LostDetailList = response.body();
                         PartnerEvent lostEvent = new PartnerEvent(LostDetailList);
+                        id = response.body().get(0).getId().toString();
                         EventBus.getDefault().post(lostEvent);
                         login();
                     }
@@ -115,9 +120,11 @@ public class PartnerLogin extends AppCompatActivity {
 
 
 
-private    String email = "";
+    private    String email = "";
 
-private    String password = "";
+    private    String password = "";
+
+
 
     public void login() {
         Log.d(TAG, "Login");
@@ -174,7 +181,14 @@ private    String password = "";
         Intent myIntent = new Intent(PartnerLogin.this,
                 PartnerHome.class);
         myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        final SharedPreferences sharedPreferences = getSharedPreferences(MYPRREFERENCE, Context.MODE_PRIVATE);
+        String ID_KEY = "mykey";
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(ID_KEY, id);
+        myIntent.putExtra("Partner_ka_Id", id);
+        editor.commit();
         startActivity(myIntent);
+
         finish();
     }
 

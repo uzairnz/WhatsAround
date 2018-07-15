@@ -11,16 +11,38 @@ public class Partner {
     @SerializedName("partner_id")
     @Expose
     private String Id;
+    @SerializedName("password")
+    @Expose
     private String password;
+    @SerializedName("name")
+    @Expose
     private String name;
+    @SerializedName("cnic_number")
+    @Expose
     private double cnic_number;
+    @SerializedName("contact_number")
+    @Expose
     private double contact_number;
+    @SerializedName("email")
+    @Expose
     private String email;
+    @SerializedName("occupation")
+    @Expose
     private String occupation;
+    @SerializedName("service_category")
+    @Expose
     private String service_category;
+    @SerializedName("age")
+    @Expose
     private int age;
+    @SerializedName("location")
+    @Expose
     private String location;
+    @SerializedName("gender")
+    @Expose
     private String gender;
+    @SerializedName("rating")
+    @Expose
     private int rating;
 
 

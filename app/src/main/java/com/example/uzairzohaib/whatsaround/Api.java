@@ -18,6 +18,7 @@ import com.example.uzairzohaib.whatsaround.models.Quote;
 import com.example.uzairzohaib.whatsaround.models.Partner;
 import com.example.uzairzohaib.whatsaround.models.Service;
 import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
+import com.example.uzairzohaib.whatsaround.models.User;
 
 /**
  * Created by UZAIR on 6/9/2018.
@@ -25,12 +26,15 @@ import com.example.uzairzohaib.whatsaround.models.ServiceQuote;
 
 public interface Api {
 
-    String BASE_URL = "http://192.168.1.6:8000/api/";
+    String BASE_URL = "http://192.168.1.3:8000/api/";
 
     // Partner Login
 
     @GET("partner_login/{email}/{password}")
     Call<ArrayList<Partner>> partnerLogin(@Path("email") String email, @Path("password") String password);
+
+    @GET("user_login/{email}/{password}")
+    Call<ArrayList<User>> userLogin(@Path("email") String email, @Path("password") String password);
 
     @GET("service")
     Call<ArrayList<Service>> getServices();

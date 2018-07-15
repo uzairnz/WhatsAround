@@ -8,6 +8,9 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+
+
+
 public class PartnerHome extends AppCompatActivity implements QuotesFragment.OnSampleFragmentListener  {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -42,19 +45,26 @@ public class PartnerHome extends AppCompatActivity implements QuotesFragment.OnS
             return false;
         }
     };
-
+    private String id = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partner_home);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
+
+
+
 
     @Override
     public void onButtonPressed() {
         Intent intent = new Intent(this, MyQuotesActivity.class);
-        String partner_id = "1";     //To view given partner quote declare partner id here.
+        id = getIntent().getStringExtra("Partner_ka_Id");
+        String partner_id = id;     //To view given partner quote declare partner id here.
         intent.putExtra("partner_id", partner_id); //add partner id when available
         startActivity(intent);
 
