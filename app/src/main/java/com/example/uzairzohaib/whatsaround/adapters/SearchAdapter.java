@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.uzairzohaib.whatsaround.BookServiceActivity;
 import com.example.uzairzohaib.whatsaround.Quote_Detail;
 import com.example.uzairzohaib.whatsaround.R;
 import com.example.uzairzohaib.whatsaround.models.Service;
@@ -75,7 +76,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
 
                 Toast.makeText(mContext, "Clicked on " + mData.get(position).getService_Id(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(mContext, Quote_Detail.class);
+                Intent intent = new Intent(mContext, BookServiceActivity.class);
                 intent.putExtra("service_Id", mData.get(position).getService_Id());
                 intent.putExtra("service_Name", mData.get(position).getService_Name() );
                 intent.putExtra("service_Category", mData.get(position).getCategory());

@@ -49,12 +49,9 @@
     <string name="service_location">Location</string>
     <string name="_4">4</string>
     <string name="_999_00">999.00</string>
-    <string name="rs">Rs.</string>
-    <string name="todo">TODO</string>
     <string name="quote_name">Quote Name</string>
     <string name="quote_category">Quote Category</string>
     <string name="add_quote">Add Quote</string>
-    <string name="description">Description</string>
     <string name="price">Price</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
@@ -62,4 +59,20 @@
     <string name="quote_ID">quote Id</string>
     <string name="my_quotes">My Quotes</string>
     <string name="quotes">Quotes</string>
+    <string name="book_service">Book Service</string>
+    <string name="offered_by">Offered by</string>
+    <string name="partner_name">Partner Name</string>
+    <string name="partner_location">Partner Location</string>
+    <string name="rating">Rating</string>
+    <string name="location">Location</string>
+    <string name="call_provider">Call Provider</string>
+    <string name="service">Service</string>
+    <string name="category_name">Category Name</string>
+    <string name="category">Category</string>
+    <string name="book_now">Book Now!</string>
+    <string name="description">Description</string>
+    <string name="pkr">PKR</string>
+    <string name="rs">Rs.</string>
+    <string name="service_name">Service Name</string>
+    <string name="todo">TODO</string>
 </resources>

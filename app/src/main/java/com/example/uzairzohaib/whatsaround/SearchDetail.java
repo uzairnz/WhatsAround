@@ -1,6 +1,7 @@
 package com.example.uzairzohaib.whatsaround;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class SearchDetail extends AppCompatActivity {
     Gson gson;
     SearchAdapter searchAdapter;
     RecyclerView myrecyclerview;
+    public String MYPRREFERENCE = "MyPreferences";
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)   //if problem then examine this
@@ -61,7 +63,11 @@ public class SearchDetail extends AppCompatActivity {
         String id = getIntent().getStringExtra("service_Id"); //try wala method
         Api api = rerofit.create(Api.class);
         Call<ArrayList<ServiceQuote>> LostList = api.getServiceQuote(id); //kill me!
-
+        final SharedPreferences sharedPreferences = getSharedPreferences(MYPRREFERENCE, Context.MODE_PRIVATE);
+        String ID_KEY = "searchkey";
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(ID_KEY, id);
+        editor.apply();
 
         //Getting data for services
         LostList.enqueue(new Callback<ArrayList<ServiceQuote>>()

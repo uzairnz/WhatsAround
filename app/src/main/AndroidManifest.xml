@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:allowBackup="true"
@@ -37,7 +39,8 @@
         <activity android:name=".AddQuoteActivity" />
         <activity android:name=".Quote_Detail" />
         <activity android:name=".MyQuotesActivity" />
-        <activity android:name=".SearchDetail"></activity>
+        <activity android:name=".SearchDetail" />
+        <activity android:name=".BookServiceActivity"></activity>
     </application>
 
 </manifest>
