@@ -46,6 +46,13 @@ public class BookServiceActivity extends AppCompatActivity {
     public int rating = 0;
     double contact = 000000000;
     public String user_Id = "1";
+    public String Service_id;
+    public String Partner_id;
+    public String Quote_id ;
+    public String Service_name ;
+    public String Service_category ;
+    public String Quote_description ;
+    public String Quote_price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,14 +70,14 @@ public class BookServiceActivity extends AppCompatActivity {
         String ID_KEY = "mykey2";
         SharedPreferences.Editor editor = sharedPreferences.edit();
         user_Id = sharedPreferences.getString(ID_KEY, "1");
-        editor.commit();
-        String Service_id = getIntent().getStringExtra("service_Id"); //try wala method
-        final String Partner_id = getIntent().getStringExtra("partner_Id");
-        final String Quote_id = getIntent().getStringExtra("quote_Id");
-        String Service_name = getIntent().getStringExtra("service_Name");
-        String Service_category = getIntent().getStringExtra("service_Id");
-        String Quote_description = getIntent().getStringExtra("quote_Description");
-        String Quote_price = getIntent().getStringExtra("quote_Price");
+        editor.apply();
+        Service_id = getIntent().getStringExtra("service_Id"); //try wala method
+        Partner_id = getIntent().getStringExtra("partner_Id");
+        Quote_id = getIntent().getStringExtra("quote_Id");
+        Service_name = getIntent().getStringExtra("service_Name");
+        Service_category = getIntent().getStringExtra("service_Category");
+        Quote_description = getIntent().getStringExtra("quote_Description");
+        Quote_price = getIntent().getStringExtra("quote_Price");
 
         //Retro call for Partner
         Retrofit rerofit = new Retrofit.Builder()
