@@ -36,13 +36,14 @@ public class BookServiceActivity extends AppCompatActivity {
    @BindView(R.id.CALL_BUTTON) ImageButton Call;
     @BindView(R.id.book_now) Button Book_Now;
     @BindView(R.id.Partner_Name) TextView Partner_Name;
+    @BindView(R.id.Partner_Location) TextView Partner_Location;
     @BindView(R.id.ratingBar2) RatingBar Rating;
     @BindView(R.id.Service_Name) TextView Service_Name;
     @BindView(R.id.category_name) TextView Category_Name;
     @BindView(R.id.description) TextView Description;
     @BindView(R.id.price) TextView Price;
 
-    public String partner_name = "";
+    public String partner_name;
     public int rating = 0;
     double contact = 000000000;
     public String user_Id = "1";
@@ -72,7 +73,7 @@ public class BookServiceActivity extends AppCompatActivity {
         user_Id = sharedPreferences.getString(ID_KEY, "1");
         editor.apply();
         Service_id = getIntent().getStringExtra("service_Id"); //try wala method
-        Partner_id = getIntent().getStringExtra("partner_Id");
+        Partner_id = getIntent().getStringExtra("partner_id");
         Quote_id = getIntent().getStringExtra("quote_Id");
         Service_name = getIntent().getStringExtra("service_Name");
         Service_category = getIntent().getStringExtra("service_Category");
@@ -90,31 +91,36 @@ public class BookServiceActivity extends AppCompatActivity {
         myList.enqueue(new Callback<ArrayList<Partner>>() {
             @Override
             public void onResponse(Call<ArrayList<Partner>> call, Response<ArrayList<Partner>> response) {
-                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+
+                //partner_name = response.body().get(0).getName();
+                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "Partner data fetched in Book Service ]" + response.body().get(0).getName());
                 ArrayList<Partner> LostDetailList = response.body();
-                partner_name = response.body().get(0).getName();
-                rating = response.body().get(0).getRating();
-                contact = response.body().get(0).getContact_number();
+                Partner_Name.setText(partner_name = response.body().get(0).getName());
+                Rating.setRating(rating = ((int) response.body().get(0).getRating()));
+                Partner_Location.setText(response.body().get(0).getLocation());
+
+                final int contact = ((int) response.body().get(0).getContact_number());
+                Call.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String phoneNumber = String.valueOf(contact);
+                        Intent dialIntent = new Intent();
+                        dialIntent.setAction(Intent.ACTION_CALL);
+                        dialIntent.setData(Uri.parse(phoneNumber));
+                    }
+                });
                 PartnerEvent lostEvent = new PartnerEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);
             }
 
             @Override
             public void onFailure(Call<ArrayList<Partner>> call, Throwable t) {
-                Log.i("response_check", "onFailure() called with: call = [" + call + "], t = [" + t + "]");
+                Log.i("response_check", "onFailure() called with: call = [" + call + "], t = [" + t + "Partner data not fetched in Book Service]");
 
             }
         });
 
-        Call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String phoneNumber = String.valueOf(contact);
-                Intent dialIntent = new Intent();
-                dialIntent.setAction(Intent.ACTION_CALL);
-                dialIntent.setData(Uri.parse(phoneNumber));
-            }
-        });
+
 
         Book_Now.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,7 +143,7 @@ public class BookServiceActivity extends AppCompatActivity {
 
                     public void onResponse(Call<Book> call, Response<Book> response) {
                         Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
-
+                        Toast.makeText(BookServiceActivity.this,"Success!",Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -153,7 +159,8 @@ public class BookServiceActivity extends AppCompatActivity {
 
 
         //Setting Text to views
-        Partner_Name.setText(partner_name);
+
+
         Rating.setRating(rating);
         Service_Name.setText(Service_name);
         Category_Name.setText(Service_category);

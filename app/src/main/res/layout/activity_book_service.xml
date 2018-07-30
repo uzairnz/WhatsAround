@@ -44,8 +44,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/offered_by"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/Partner_Name"
@@ -56,7 +55,13 @@
         android:layout_gravity="center"
         android:text="@string/partner_name"
         android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:textSize="20sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
 
         <TextView
         android:id="@+id/textView6"
@@ -66,18 +71,23 @@
         android:layout_below="@+id/Partner_Name"
         android:text="@string/rating"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
-    <RatingBar
-        android:id="@+id/ratingBar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView6"
-        android:layout_gravity="center"
-        android:numStars="4"
-        android:rating="4" />
+        <RatingBar
+            android:id="@+id/ratingBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView6"
+            android:layout_gravity="center"
+            android:numStars="4"
+            android:rating="4" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
 
         <TextView
         android:id="@+id/textView7"
@@ -87,8 +97,7 @@
         android:layout_below="@+id/ratingBar2"
         android:text="@string/location"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/Partner_Location"
@@ -99,7 +108,15 @@
         android:layout_gravity="center"
         android:text="@string/partner_location"
         android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:textSize="20sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
+
 
         <TextView
         android:id="@+id/textView9"
@@ -109,8 +126,7 @@
             android:layout_below="@+id/Partner_Location"
         android:text="@string/call_provider"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp" />
 
     <ImageButton
         android:id="@+id/CALL_BUTTON"
@@ -122,6 +138,12 @@
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/ic_call_black_24dp" />
 
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
+
         <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -130,8 +152,8 @@
             android:layout_below="@+id/CALL_BUTTON"
         android:text="@string/service"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp"
+         />
 
     <TextView
         android:id="@+id/Service_Name"
@@ -141,8 +163,15 @@
         android:layout_below="@+id/textView10"
         android:layout_gravity="center"
         android:text="@string/service_name"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
 
     <TextView
         android:id="@+id/textView12"
@@ -152,8 +181,8 @@
         android:layout_below="@+id/Service_Name"
         android:text="@string/category"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp"
+         />
 
     <TextView
         android:id="@+id/category_name"
@@ -163,8 +192,15 @@
         android:layout_below="@+id/textView12"
         android:layout_gravity="center"
         android:text="@string/category_name"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
 
     <TextView
         android:id="@+id/textView15"
@@ -173,8 +209,8 @@
         android:layout_marginTop="13dp"
         android:text="Rs."
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="15sp"
+         />
 
     <TextView
         android:id="@+id/price"
@@ -182,8 +218,15 @@
         android:layout_height="wrap_content"
         android:text="@string/pkr"
         android:layout_gravity="center"
+        android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
 
     <TextView
         android:id="@+id/description"
@@ -193,7 +236,14 @@
         android:padding="@dimen/margin_4"
         android:text="description"
         android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         android:textSize="15sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/real_grey"/>
 
     <Button
         android:id="@+id/book_now"
