@@ -45,7 +45,6 @@ public class BookServiceActivity extends AppCompatActivity {
 
     public String partner_name;
     public int rating = 0;
-    double contact = 000000000;
     public String user_Id = "1";
     public String Service_id;
     public String Partner_id;
@@ -99,7 +98,7 @@ public class BookServiceActivity extends AppCompatActivity {
                 Rating.setRating(rating = ((int) response.body().get(0).getRating()));
                 Partner_Location.setText(response.body().get(0).getLocation());
 
-                final int contact = ((int) response.body().get(0).getContact_number());
+               final String contact = response.body().get(0).getContact_number().toString();
                 Call.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -144,6 +143,9 @@ public class BookServiceActivity extends AppCompatActivity {
                     public void onResponse(Call<Book> call, Response<Book> response) {
                         Log.d("Post", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
                         Toast.makeText(BookServiceActivity.this,"Success!",Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(BookServiceActivity.this, CustomerHome.class);
+                        BookServiceActivity.this.startActivity(myIntent);
+
 
                     }
 

@@ -22,7 +22,7 @@ public class Partner {
     private double cnic_number;
     @SerializedName("contact_number")
     @Expose
-    private double contact_number;
+    private String contact_number;
     @SerializedName("email")
     @Expose
     private String email;
@@ -78,11 +78,11 @@ public class Partner {
         this.cnic_number = cnic_number;
     }
 
-    public double getContact_number() {
+    public String getContact_number() {
         return contact_number;
     }
 
-    public void setContact_number(double contact_number) {
+    public void setContact_number(String contact_number) {
         this.contact_number = contact_number;
     }
 
@@ -144,7 +144,7 @@ public class Partner {
 
 
 
-    public Partner(String id, String password, String name, int cnic_number, int contact_number, String email, String occupation, String service_category, int age, String location, String gender, int rating) {
+    public Partner(String id, String password, String name, int cnic_number, String contact_number, String email, String occupation, String service_category, int age, String location, String gender, int rating) {
         Id = id;
         this.password = password;
         this.name = name;
