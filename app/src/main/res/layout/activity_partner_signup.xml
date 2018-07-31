@@ -147,8 +147,8 @@
             <EditText android:id="@+id/gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Gender"/>
+                android:inputType="text"
+                android:hint="@string/gender"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->

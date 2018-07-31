@@ -87,7 +87,7 @@ public class MyQuotesActivity extends AppCompatActivity {
         LostList.enqueue(new Callback<ArrayList<ServiceQuote>>() {
             @Override
             public void onResponse(Call<ArrayList<ServiceQuote>> call, Response<ArrayList<ServiceQuote>> response) {
-                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "] My quotes");
                 ArrayList<ServiceQuote> LostDetailList = response.body();
                 ServiceQuoteEvent lostEvent = new ServiceQuoteEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);

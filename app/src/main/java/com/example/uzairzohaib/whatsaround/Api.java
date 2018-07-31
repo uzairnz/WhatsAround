@@ -60,8 +60,25 @@ public interface Api {
             @Field("contact_number") String contact_number,
             @Field("email") String email,
             @Field("rating") String rating
+
     );
 
+
+    @POST("partner")
+    @FormUrlEncoded
+    Call<Partner>savepartner(
+            @Field("password") String password,
+            @Field("name") String name,
+            @Field("cnic_number") String cnic_number,
+            @Field("contact_number") String contact_number,
+            @Field("email") String email,
+            @Field("occupation") String occupation,
+            @Field("service_category") String service_category,
+            @Field("age") String age,
+            @Field("location") String location,
+            @Field("gender") String gender,
+            @Field("rating") String rating
+    );
 
     @GET("user_login/{email}/{password}")
     Call<ArrayList<User>> userLogin(@Path("email") String email, @Path("password") String password);
