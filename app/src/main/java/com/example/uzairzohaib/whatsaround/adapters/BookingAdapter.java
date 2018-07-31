@@ -76,8 +76,8 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tv_booking_id;
-        private TextView tv_service_name;
-        private TextView tv_partner_name;
+//        private TextView tv_service_name;
+//        private TextView tv_partner_name;
         private TextView tv_status;
         private RelativeLayout relativeLayout;
 
@@ -85,7 +85,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.MyViewHo
         public MyViewHolder(View itemView) {
             super(itemView);
 
-//            tv_booking_id = (TextView) itemView.findViewById(R.id.booking_id);
+            tv_booking_id = (TextView) itemView.findViewById(R.id.booking_id);
 //            tv_service_name = (TextView) itemView.findViewById(R.id.service_name);
 //            tv_partner_name = (TextView) itemView.findViewById(R.id.Partner_Name);
             tv_status = (TextView) itemView.findViewById(R.id.book_status);

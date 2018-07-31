@@ -36,7 +36,7 @@
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:editable="false"
                 android:elegantTextHeight="false"
-                android:hint="@string/LoginUser"
+                android:hint="@string/Email"
                 android:inputType="textEmailAddress"
                 android:selectAllOnFocus="false"
                 android:singleLine="false"

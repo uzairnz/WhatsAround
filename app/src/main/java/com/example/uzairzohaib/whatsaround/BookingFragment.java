@@ -43,12 +43,12 @@ public class BookingFragment extends android.app.Fragment {
     Gson gson;
     BookingAdapter recyclerAdapter;
 
-    String user_Id;
-    SharedPreferences preferences = this.getActivity().getSharedPreferences(MYPRREFERENCE, Context.MODE_PRIVATE);
-    String ID_KEY = "mykey2";
-    SharedPreferences.Editor editor = this.getActivity().getPreferences().edit();
-    user_Id = sharedPreference.getString(ID_KEY, "1");
-    editor.apply();
+//    SharedPreferences mSettings = getActivity().getSharedPreferences(MYPRREFERENCE, Context.MODE_PRIVATE);
+ //   String ID_KEY = "mykey2";
+ //   String user_id = mSettings.getString(ID_KEY, "1");
+   // SharedPreferences.Editor editor = this.getActivity().getPreferences().edit();
+   // user_Id = sharedPreference.getString(ID_KEY, "1");
+   // editor.apply();
 
 
     public BookingFragment() {
@@ -93,12 +93,12 @@ public class BookingFragment extends android.app.Fragment {
 
 
         Api api = rerofit.create(Api.class);
-        Call<ArrayList<Book>> LostList = api.getBooked(user_Id);
+        Call<ArrayList<Book>> LostList = api.getBooked("1");
 
         LostList.enqueue(new Callback<ArrayList<Book>>() {
             @Override
             public void onResponse(Call<ArrayList<Book>> call, Response<ArrayList<Book>> response) {
-                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "]");
+                Log.i("response_check", "onResponse() called with: call = [" + call + "], response = [" + response + "] Booking fragment have data");
                 ArrayList<Book> LostDetailList = response.body();
                 BookEvent lostEvent = new BookEvent(LostDetailList);
                 EventBus.getDefault().post(lostEvent);
