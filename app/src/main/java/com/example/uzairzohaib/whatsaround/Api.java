@@ -40,6 +40,9 @@ public interface Api {
     @GET("booked/{id}")
     Call<ArrayList<Book>> getBooked(@Path("id") String id);
 
+    @GET("booking/{id}")
+    Call<ArrayList<Book>> getBooking(@Path("id") String id);
+
     @POST("book")
     @FormUrlEncoded
     Call<Book>savebook(
@@ -47,6 +50,17 @@ public interface Api {
             @Field("status") String status,
             @Field("quote_id") String quote_id,
             @Field("partner_id") String partner_id);
+
+    @POST("user")
+    @FormUrlEncoded
+    Call<User>saveuser(
+            @Field("password") String password,
+            @Field("name") String name,
+            @Field("cnic_number") String cnic_number,
+            @Field("contact_number") String contact_number,
+            @Field("email") String email,
+            @Field("rating") String rating
+    );
 
 
     @GET("user_login/{email}/{password}")

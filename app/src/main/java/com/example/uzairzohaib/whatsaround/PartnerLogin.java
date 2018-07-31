@@ -93,13 +93,8 @@ public String MYPRREFERENCE = "MyPreferences";
                 });
 
 
-
-
             }
         });
-
-
-
 
 
         _signupLink.setOnClickListener(new View.OnClickListener() {

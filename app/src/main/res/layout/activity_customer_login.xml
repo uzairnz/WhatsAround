@@ -15,11 +15,24 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView app:srcCompat="@drawable/ic_if_client_1931212"
+        <ImageView app:srcCompat="@drawable/ic_if_map_1291745"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="@dimen/margin_40"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="           Whats Around!"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout

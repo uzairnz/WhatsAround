@@ -45,7 +45,6 @@
     <string name="service_information">Service Information</string>
     <string name="details">Details</string>
     <string name="title">Title</string>
-    <string name="service_category">Service Category</string>
     <string name="service_location">Location</string>
     <string name="_4">4</string>
     <string name="_999_00">999.00</string>
@@ -77,4 +76,10 @@
     <string name="todo">TODO</string>
     <string name="status">Status</string>
     <string name="booking_id">Booking id: </string>
+    <string name="cnic_number">Cnic Number</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="occupation">Occupation</string>
+    <string name="service_category">Service Category</string>
+    <string name="age">Age</string>
+    <string name="address">Address</string>
 </resources>
