@@ -37,6 +37,9 @@ public interface Api {
     @GET("partner/{id}")
     Call<ArrayList<Partner>> getPartner(@Path("id")String id);
 
+    @GET("booked/{id}")
+    Call<ArrayList<Book>> getBooked(@Path("id") String id);
+
     @POST("book")
     @FormUrlEncoded
     Call<Book>savebook(

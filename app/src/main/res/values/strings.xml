@@ -75,4 +75,6 @@
     <string name="rs">Rs.</string>
     <string name="service_name">Service Name</string>
     <string name="todo">TODO</string>
+    <string name="status">Status</string>
+    <string name="booking_id">Booking id: </string>
 </resources>

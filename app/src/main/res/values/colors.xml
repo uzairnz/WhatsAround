@@ -12,5 +12,6 @@
     <color name="real_grey">#808080</color>
     <color name="background_color_1">#e7f1f4</color>
     <color name="light_grey">#d4d3d3d3</color>
+    <color name="green">#00ff00</color>
 
 </resources>
