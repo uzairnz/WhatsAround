@@ -24,9 +24,8 @@ Android services application.
 
 #### Installation
 
-- Add google-services.json from your Firebase
-- Enable Relatime Database
-- Enable Emailpassword in Authentication Signin Method.
+- https://github.com/uzairnz/WhatsAroundhod-api.
+'Clone Laravel Api for Admin Dashboard & REST Api calls'
 
 ### Screenshots
 
